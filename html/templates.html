@@ -1,0 +1,87 @@
+<template id='main_structure'>
+    <div class='row'>
+        <div class='col-xs-12 col-sm-8 col-md-8 col-lg-8'>
+            &nbsp;
+        </div>
+        <div class='col-xs-12 col-sm-4 col-md-4 col-lg-4'>
+            <button class='btn btn-default' style='width: 100%;' id='show_hide_button'>
+                <i class='fa fa-file-excel-o'></i> Download Options
+            </button>
+        </div>
+    </div>
+    <div class='row' id='options_box' style='display: none;'>
+        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+            <div class='standard-title'>
+                Decimal Separator
+            </div>
+            <hr class='standard-hr'>
+            <div class='radio'>
+                <label>
+                    <input type='radio' name='decimal_separator'>
+                    Comma
+                </label>
+            </div>
+            <div class='radio'>
+                <label>
+                    <input type='radio' name='decimal_separator' checked>
+                    Period
+                </label>
+            </div>
+        </div>
+        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+            <div class='standard-title'>
+                Thousand Separator
+            </div>
+            <hr class='standard-hr'>
+            <div class='radio'>
+                <label>
+                    <input type='radio' name='thousand_separator' checked>
+                    Comma
+                </label>
+            </div>
+            <div class='radio'>
+                <label>
+                    <input type='radio' name='thousand_separator'>
+                    Period
+                </label>
+            </div>
+        </div>
+        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+            <div class='standard-title'>
+                Decimal Numbers
+            </div>
+            <hr class='standard-hr'>
+            <input type='number' class='form-control' value='2' style='width: 100%;'>
+        </div>
+        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+            <div class='standard-title'>
+                Show
+            </div>
+            <hr class='standard-hr'>
+            <div class='checkbox'>
+                <label>
+                    <input type='checkbox' checked>
+                    Flags
+                </label>
+            </div>
+            <div class='checkbox'>
+                <label>
+                    <input type='checkbox' checked>
+                    Codes
+                </label>
+            </div>
+            <div class='checkbox'>
+                <label>
+                    <input type='checkbox'>
+                    Units
+                </label>
+            </div>
+            <div class='checkbox'>
+                <label>
+                    <input type='checkbox'>
+                    Null Values
+                </label>
+            </div>
+        </div>
+    </div>
+</template>
