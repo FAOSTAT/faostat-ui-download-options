@@ -17,7 +17,7 @@
             <hr class='standard-hr'>
             <div class='radio'>
                 <label>
-                    <input type='radio' name='decimal_separator'>
+                    <input type='radio' name='decimal_separator' id='decimal_separator'>
                     {{comma_label}}
                 </label>
             </div>
@@ -35,7 +35,7 @@
             <hr class='standard-hr'>
             <div class='radio'>
                 <label>
-                    <input type='radio' name='thousand_separator' checked>
+                    <input type='radio' name='thousand_separator' checked id='thousand_separator'>
                     {{comma_label}}
                 </label>
             </div>
@@ -51,7 +51,7 @@
                 {{decimal_numbers_label}}
             </div>
             <hr class='standard-hr'>
-            <input type='number' class='form-control' value='2' style='width: 100%;'>
+            <input type='number' class='form-control' value='2' style='width: 100%;' id='decimal_numbers'>
         </div>
         <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
             <div class='standard-title'>
@@ -60,25 +60,25 @@
             <hr class='standard-hr'>
             <div class='checkbox'>
                 <label>
-                    <input type='checkbox' checked>
+                    <input type='checkbox' checked id='flags'>
                     {{flags_label}}
                 </label>
             </div>
             <div class='checkbox'>
                 <label>
-                    <input type='checkbox' checked>
+                    <input type='checkbox' checked id='codes'>
                     {{codes_label}}
                 </label>
             </div>
             <div class='checkbox'>
                 <label>
-                    <input type='checkbox'>
+                    <input type='checkbox' id='units'>
                     {{units_label}}
                 </label>
             </div>
             <div class='checkbox'>
                 <label>
-                    <input type='checkbox'>
+                    <input type='checkbox' id='null_values'>
                     {{null_values_label}}
                 </label>
             </div>
