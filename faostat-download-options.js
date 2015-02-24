@@ -31,7 +31,17 @@ define(['jquery',
         var source = $(templates).filter('#main_structure').html();
         var template = Handlebars.compile(source);
         var dynamic_data = {
-
+            button_label: translate.button,
+            decimal_separator_label: translate.decimal_separator,
+            comma_label: translate.comma,
+            period_label: translate.period,
+            thousand_separator_label: translate.thousand_separator,
+            decimal_numbers_label: translate.decimal_numbers,
+            show_label: translate.show,
+            flags_label: translate.flags,
+            codes_label: translate.codes,
+            units_label: translate.units,
+            null_values_label: translate.null_values
         };
         var html = template(dynamic_data);
         $('#' + _this.CONFIG.placeholder_id).html(html);
