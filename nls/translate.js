@@ -14,7 +14,9 @@ define({
         download_as: 'Download as...',
         csv: 'CSV',
         excel: 'Excel',
-        pdf: 'PDF'
+        pdf: 'PDF',
+        warning: 'Warning',
+        no_listener_for_this_button: 'No action has been implemented for this button. Please check your configuration.'
     },
     F : true,
     S : true

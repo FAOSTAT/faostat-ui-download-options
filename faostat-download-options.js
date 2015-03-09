@@ -34,7 +34,10 @@ define(['jquery',
             prefix: 'fenix_',
             button_label: translate.download_as,
             header_label: translate.button,
-            csv_action: null
+            csv_action: null,
+            excel_action: null,
+            pdf_action: null,
+            ok_action: null
         };
 
     }
@@ -90,7 +93,10 @@ define(['jquery',
         /* Link listeners to buttons. */
         $('#' + this.CONFIG.prefix + 'csv_button').click(function() {
             _this.csv_listener();
-        })
+        });
+        $('#' + this.CONFIG.prefix + 'excel_button').click(function() {
+            _this.excel_listener();
+        });
 
     };
 
@@ -108,6 +114,15 @@ define(['jquery',
     OPTIONS.prototype.csv_listener = function() {
         var data = [1, 2, 3, 4, 5];
         this.CONFIG.csv_action(this.collect_user_selection(), data);
+    };
+
+    OPTIONS.prototype.excel_listener = function() {
+        var data = [1, 2, 3, 4, 5];
+        try {
+            this.CONFIG.excel_action(this.collect_user_selection(), data);
+        } catch(e) {
+            swal(translate.warning, translate.no_listener_for_this_button, 'warning');
+        }
     };
 
     OPTIONS.prototype.show_as_menu = function() {
