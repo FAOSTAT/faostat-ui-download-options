@@ -14,6 +14,7 @@ define(['jquery',
             placeholder_id: 'placeholder',
             excel_button: true,
             pdf_button: false,
+            ok_button: false,
             csv_button: true,
             decimal_separators: true,
             thousand_separators: true,
@@ -30,7 +31,8 @@ define(['jquery',
             codes_id: 'codes',
             units_id: 'units',
             null_values_id: 'null_values',
-            prefix: 'fenix_'
+            prefix: 'fenix_',
+            button_label: translate.button
         };
 
     }
@@ -50,6 +52,8 @@ define(['jquery',
         /* this... */
         var _this = this;
 
+        console.log(this.CONFIG);
+
         /* Load button template. */
         var source = $(templates).filter('#modal_window_button').html();
         var template = Handlebars.compile(source);
@@ -62,11 +66,13 @@ define(['jquery',
             units_id: this.CONFIG.prefix + this.CONFIG.units_id,
             null_values_id: this.CONFIG.prefix + this.CONFIG.decimal_separator_id,
             modal_window_button_id: translate.download_as,
-            modal_window_button_label: translate.download_as,
             modal_window_id: 'modal_window_id',
             modal_window_header_label: translate.button,
             pdf: this.CONFIG.pdf_button,
             csv: this.CONFIG.csv_button,
+            ok: this.CONFIG.ok_button,
+            ok_button_id: this.CONFIG.ok_button,
+            ok_button_label: 'OK',
             excel: this.CONFIG.excel_button,
             decimal_separators: this.CONFIG.decimal_separators,
             thousand_separators: this.CONFIG.thousand_separators,
@@ -87,7 +93,8 @@ define(['jquery',
             excel_label: translate.excel,
             pdf_button_id: this.CONFIG.pdf_button_id,
             csv_button_id: this.CONFIG.csv_button_id,
-            excel_button_id: this.CONFIG.excel_button_id
+            excel_button_id: this.CONFIG.excel_button_id,
+            modal_window_button_label: this.CONFIG.button_label
         };
         var html = template(dynamic_data);
         $('#' + _this.CONFIG.placeholder_id).html(html);

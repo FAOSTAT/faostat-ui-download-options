@@ -87,16 +87,10 @@
 </template>
 
 <template id='modal_window_button'>
-    <div class='row'>
-        <div class='col-xs-12 col-sm-8 col-md-8 col-lg-8'>
-            &nbsp;
-        </div>
-        <div class='col-xs-12 col-sm-4 col-md-4 col-lg-4'>
-            <button class='btn btn-default' style='width: 100%;' id='{{modal_window_button_id}}' data-toggle='modal' data-target='#{{modal_window_id}}'>
-                <i class='fa fa-download'></i> {{modal_window_button_label}}
-            </button>
-        </div>
-    </div>
+    <button class='btn btn-primary' style='width: 100%;' id='{{modal_window_button_id}}' data-toggle='modal'
+            data-target='#{{modal_window_id}}'>
+        <i class='fa fa-download'></i> {{modal_window_button_label}}
+    </button>
     <div id='{{modal_window_id}}' class='modal'>
         <div class='modal-dialog'>
             <div class='modal-content'>
@@ -203,6 +197,11 @@
                     {{#if excel}}
                     <button type='button' class='btn btn-primary ' id='{{excel_button_id}}'>
                         <i class='fa fa-file-excel-o'></i> {{excel_label}}
+                    </button>
+                    {{/if}}
+                    {{#if ok}}
+                    <button type='button' class='btn btn-primary ' id='{{ok_button_id}}'>
+                        <i class='fa fa-check'></i> {{ok_button_label}}
                     </button>
                     {{/if}}
                 </div>

@@ -11,7 +11,7 @@ define({
         codes: 'Codes',
         units: 'Units',
         null_values: 'Null Values',
-        download_as: 'Download As...',
+        download_as: 'Download as...',
         csv: 'CSV',
         excel: 'Excel',
         pdf: 'PDF'
