@@ -18,7 +18,19 @@ define(['jquery',
             decimal_separators: true,
             thousand_separators: true,
             decimal_numbers: true,
-            show_options: true
+            show_options: true,
+            pdf_button_id: 'pdf_button_id',
+            csv_button_id: 'csv_button_id',
+            excel_button_id: 'excel_button_id',
+            user_selection: {},
+            decimal_separator_id: 'decimal_separator',
+            thousand_separator_id: 'thousand_separator',
+            decimal_numbers_id: 'decimal_numbers',
+            flags_id: 'flags',
+            codes_id: 'codes',
+            units_id: 'units',
+            null_values_id: 'null_values',
+            prefix: 'fenix_'
         };
 
     }
@@ -42,6 +54,13 @@ define(['jquery',
         var source = $(templates).filter('#modal_window_button').html();
         var template = Handlebars.compile(source);
         var dynamic_data = {
+            decimal_separator_id: this.CONFIG.prefix + this.CONFIG.decimal_separator_id,
+            thousand_separator_id: this.CONFIG.prefix + this.CONFIG.thousand_separator_id,
+            decimal_numbers_id: this.CONFIG.prefix + this.CONFIG.decimal_numbers_id,
+            flags_id: this.CONFIG.prefix + this.CONFIG.flags_id,
+            codes_id: this.CONFIG.prefix + this.CONFIG.codes_id,
+            units_id: this.CONFIG.prefix + this.CONFIG.units_id,
+            null_values_id: this.CONFIG.prefix + this.CONFIG.decimal_separator_id,
             modal_window_button_id: translate.download_as,
             modal_window_button_label: translate.download_as,
             modal_window_id: 'modal_window_id',
@@ -65,11 +84,28 @@ define(['jquery',
             null_values_label: translate.null_values,
             pdf_label: translate.pdf,
             csv_label: translate.csv,
-            excel_label: translate.excel
+            excel_label: translate.excel,
+            pdf_button_id: this.CONFIG.pdf_button_id,
+            csv_button_id: this.CONFIG.csv_button_id,
+            excel_button_id: this.CONFIG.excel_button_id
         };
         var html = template(dynamic_data);
         $('#' + _this.CONFIG.placeholder_id).html(html);
 
+        /* Link listeners to buttons. */
+        $('#' + this.CONFIG.csv_button_id).click(function() {
+            _this.csv_listener();
+        })
+
+    };
+
+    OPTIONS.prototype.collect_user_selection = function() {
+
+        console.log(this.CONFIG.user_selection);
+    };
+
+    OPTIONS.prototype.csv_listener = function(user_selection, data) {
+        swal('CSV Button');
     };
 
     OPTIONS.prototype.show_as_menu = function() {

@@ -102,110 +102,110 @@
             <div class='modal-content'>
                 <div class='modal-header'>
                     <button type='button' class='close' data-dismiss='modal'>&times;</button>
-                    <h4>{{modal_window_header_label}}</h4>
+                    <h4 class='modal-title'>{{modal_window_header_label}}</h4>
                 </div>
-            </div>
-            <div class='modal-body'>
-                <div class='row'>
-                    {{#if decimal_separators}}
-                    <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
-                        <div class='standard-title'>
-                            {{decimal_separator_label}}
+                <div class='modal-body'>
+                    <div class='row'>
+                        {{#if decimal_separators}}
+                        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                            <h7>
+                                {{decimal_separator_label}}
+                            </h7>
+                            <hr class='standard-hr'>
+                            <div class='radio'>
+                                <label>
+                                    <input type='radio' name='decimal_separator' id='{{decimal_separator_id}}'>
+                                    {{comma_label}}
+                                </label>
+                            </div>
+                            <div class='radio'>
+                                <label>
+                                    <input type='radio' name='decimal_separator' checked>
+                                    {{period_label}}
+                                </label>
+                            </div>
                         </div>
-                        <hr class='standard-hr'>
-                        <div class='radio'>
-                            <label>
-                                <input type='radio' name='decimal_separator' id='{{decimal_separator_id}}'>
-                                {{comma_label}}
-                            </label>
+                        {{/if}}
+                        {{#if thousand_separators}}
+                        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                            <h7>
+                                {{thousand_separator_label}}
+                            </h7>
+                            <hr class='standard-hr'>
+                            <div class='radio'>
+                                <label>
+                                    <input type='radio' name='thousand_separator' checked id='{{thousand_separator_id}}'>
+                                    {{comma_label}}
+                                </label>
+                            </div>
+                            <div class='radio'>
+                                <label>
+                                    <input type='radio' name='thousand_separator'>
+                                    {{period_label}}
+                                </label>
+                            </div>
                         </div>
-                        <div class='radio'>
-                            <label>
-                                <input type='radio' name='decimal_separator' checked>
-                                {{period_label}}
-                            </label>
+                        {{/if}}
+                        {{#if decimal_numbers}}
+                        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                            <h7>
+                                {{decimal_numbers_label}}
+                            </h7>
+                            <hr class='standard-hr'>
+                            <input type='number' class='form-control' value='2' style='width: 100%;' id='{{decimal_numbers_id}}'>
                         </div>
+                        {{/if}}
+                        {{#if show_options}}
+                        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                            <h7>
+                                {{show_label}}
+                            </h7>
+                            <hr class='standard-hr'>
+                            <div class='checkbox'>
+                                <label>
+                                    <input type='checkbox' checked id='{{flags_id}}'>
+                                    {{flags_label}}
+                                </label>
+                            </div>
+                            <div class='checkbox'>
+                                <label>
+                                    <input type='checkbox' checked id='{{codes_id}}'>
+                                    {{codes_label}}
+                                </label>
+                            </div>
+                            <div class='checkbox'>
+                                <label>
+                                    <input type='checkbox' id='{{units_id}}'>
+                                    {{units_label}}
+                                </label>
+                            </div>
+                            <div class='checkbox'>
+                                <label>
+                                    <input type='checkbox' id='{{null_values_id}}'>
+                                    {{null_values_label}}
+                                </label>
+                            </div>
+                        </div>
+                        {{/if}}
                     </div>
+                </div>
+                <div class='modal-footer'>
+                    {{#if pdf}}
+                    <button type='button' class='btn btn-primary fs-download-btn' id='{{pdf_button_id}}'>
+                        <i class='fa fa-file-pdf-o'></i> {{pdf_label}}
+                    </button>
                     {{/if}}
-                    {{#if thousand_separators}}
-                    <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
-                        <div class='standard-title'>
-                            {{thousand_separator_label}}
-                        </div>
-                        <hr class='standard-hr'>
-                        <div class='radio'>
-                            <label>
-                                <input type='radio' name='thousand_separator' checked id='{{thousand_separator_id}}'>
-                                {{comma_label}}
-                            </label>
-                        </div>
-                        <div class='radio'>
-                            <label>
-                                <input type='radio' name='thousand_separator'>
-                                {{period_label}}
-                            </label>
-                        </div>
-                    </div>
+                    {{#if csv}}
+                    <button type='button' class='btn btn-primary fs-download-btn' id='{{csv_button_id}}'>
+                        <i class='fa fa-file-text-o'></i> {{csv_label}}
+                    </button>
                     {{/if}}
-                    {{#if decimal_numbers}}
-                    <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
-                        <div class='standard-title'>
-                            {{decimal_numbers_label}}
-                        </div>
-                        <hr class='standard-hr'>
-                        <input type='number' class='form-control' value='2' style='width: 100%;' id='{{decimal_numbers_id}}'>
-                    </div>
-                    {{/if}}
-                    {{#if show_options}}
-                    <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
-                        <div class='standard-title'>
-                            {{show_label}}
-                        </div>
-                        <hr class='standard-hr'>
-                        <div class='checkbox'>
-                            <label>
-                                <input type='checkbox' checked id='{{flags_id}}'>
-                                {{flags_label}}
-                            </label>
-                        </div>
-                        <div class='checkbox'>
-                            <label>
-                                <input type='checkbox' checked id='{{codes_id}}'>
-                                {{codes_label}}
-                            </label>
-                        </div>
-                        <div class='checkbox'>
-                            <label>
-                                <input type='checkbox' id='{{units_id}}'>
-                                {{units_label}}
-                            </label>
-                        </div>
-                        <div class='checkbox'>
-                            <label>
-                                <input type='checkbox' id='{{null_values_id}}'>
-                                {{null_values_label}}
-                            </label>
-                        </div>
-                    </div>
+                    {{#if excel}}
+                    <button type='button' class='btn btn-primary ' id='{{excel_button_id}}'>
+                        <i class='fa fa-file-excel-o'></i> {{excel_label}}
+                    </button>
                     {{/if}}
                 </div>
-            </div>
-            <div class='modal-footer'>
-                {{#if pdf}}
-                <button type='button' class='btn btn-primary'>
-                    <i class='fa fa-file-pdf-o'></i> {{pdf_label}}
-                </button>
-                {{/if}}
-                {{#if csv}}
-                <button type='button' class='btn btn-primary'>
-                    <i class='fa fa-file-text-o'></i> {{csv_label}}
-                </button>
-                {{/if}}
-                {{#if excel}}
-                <button type='button' class='btn btn-primary'>
-                    <i class='fa fa-file-excel-o'></i> {{excel_label}}
-                </button>
-                {{/if}}
             </div>
         </div>
     </div>
