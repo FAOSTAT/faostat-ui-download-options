@@ -85,3 +85,128 @@
         </div>
     </div>
 </template>
+
+<template id='modal_window_button'>
+    <div class='row'>
+        <div class='col-xs-12 col-sm-8 col-md-8 col-lg-8'>
+            &nbsp;
+        </div>
+        <div class='col-xs-12 col-sm-4 col-md-4 col-lg-4'>
+            <button class='btn btn-default' style='width: 100%;' id='{{modal_window_button_id}}' data-toggle='modal' data-target='#{{modal_window_id}}'>
+                <i class='fa fa-download'></i> {{modal_window_button_label}}
+            </button>
+        </div>
+    </div>
+    <div id='{{modal_window_id}}' class='modal'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                    <h4>{{modal_window_header_label}}</h4>
+                </div>
+            </div>
+            <div class='modal-body'>
+                <div class='row'>
+                    {{#if decimal_separators}}
+                    <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                        <div class='standard-title'>
+                            {{decimal_separator_label}}
+                        </div>
+                        <hr class='standard-hr'>
+                        <div class='radio'>
+                            <label>
+                                <input type='radio' name='decimal_separator' id='{{decimal_separator_id}}'>
+                                {{comma_label}}
+                            </label>
+                        </div>
+                        <div class='radio'>
+                            <label>
+                                <input type='radio' name='decimal_separator' checked>
+                                {{period_label}}
+                            </label>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if thousand_separators}}
+                    <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                        <div class='standard-title'>
+                            {{thousand_separator_label}}
+                        </div>
+                        <hr class='standard-hr'>
+                        <div class='radio'>
+                            <label>
+                                <input type='radio' name='thousand_separator' checked id='{{thousand_separator_id}}'>
+                                {{comma_label}}
+                            </label>
+                        </div>
+                        <div class='radio'>
+                            <label>
+                                <input type='radio' name='thousand_separator'>
+                                {{period_label}}
+                            </label>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if decimal_numbers}}
+                    <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                        <div class='standard-title'>
+                            {{decimal_numbers_label}}
+                        </div>
+                        <hr class='standard-hr'>
+                        <input type='number' class='form-control' value='2' style='width: 100%;' id='{{decimal_numbers_id}}'>
+                    </div>
+                    {{/if}}
+                    {{#if show_options}}
+                    <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                        <div class='standard-title'>
+                            {{show_label}}
+                        </div>
+                        <hr class='standard-hr'>
+                        <div class='checkbox'>
+                            <label>
+                                <input type='checkbox' checked id='{{flags_id}}'>
+                                {{flags_label}}
+                            </label>
+                        </div>
+                        <div class='checkbox'>
+                            <label>
+                                <input type='checkbox' checked id='{{codes_id}}'>
+                                {{codes_label}}
+                            </label>
+                        </div>
+                        <div class='checkbox'>
+                            <label>
+                                <input type='checkbox' id='{{units_id}}'>
+                                {{units_label}}
+                            </label>
+                        </div>
+                        <div class='checkbox'>
+                            <label>
+                                <input type='checkbox' id='{{null_values_id}}'>
+                                {{null_values_label}}
+                            </label>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class='modal-footer'>
+                {{#if excel}}
+                <button type='button' class='btn btn-primary'>
+                    Excel
+                </button>
+                {{/if}}
+                {{#if pdf}}
+                <button type='button' class='btn btn-primary'>
+                    PDF
+                </button>
+                {{/if}}
+                {{#if csv}}
+                <button type='button' class='btn btn-primary'>
+                    CSV
+                </button>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>
