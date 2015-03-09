@@ -33,7 +33,8 @@ define(['jquery',
             null_values_id: 'null_values',
             prefix: 'fenix_',
             button_label: translate.download_as,
-            header_label: translate.button
+            header_label: translate.button,
+            csv_action: null
         };
 
     }
@@ -56,7 +57,6 @@ define(['jquery',
         /* Load button template. */
         var source = $(templates).filter('#modal_window_button').html();
         var template = Handlebars.compile(source);
-        console.log(this.CONFIG.prefix + this.CONFIG.decimal_separator_id);
         var dynamic_data = {
             modal_window_header_label: this.CONFIG.header_label,
             pdf: this.CONFIG.pdf_button,
@@ -98,16 +98,16 @@ define(['jquery',
         this.CONFIG.user_selection.decimal_separator = $('#' + this.CONFIG.prefix + 'decimal_separator').val();
         this.CONFIG.user_selection.thousand_separator = $('#' + this.CONFIG.prefix + 'thousand_separator').val();
         this.CONFIG.user_selection.decimal_numbers = $('#' + this.CONFIG.prefix + 'decimal_numbers').val();
-        this.CONFIG.user_selection.flags = $('#' + this.CONFIG.prefix + 'flags').is(':checked')
-        this.CONFIG.user_selection.codes = $('#' + this.CONFIG.prefix + 'codes').is(':checked')
-        this.CONFIG.user_selection.units = $('#' + this.CONFIG.prefix + 'units').is(':checked')
-        this.CONFIG.user_selection.null_values = $('#' + this.CONFIG.prefix + 'null_values').is(':checked')
-        console.log(this.CONFIG.user_selection);
+        this.CONFIG.user_selection.flags = $('#' + this.CONFIG.prefix + 'flags').is(':checked');
+        this.CONFIG.user_selection.codes = $('#' + this.CONFIG.prefix + 'codes').is(':checked');
+        this.CONFIG.user_selection.units = $('#' + this.CONFIG.prefix + 'units').is(':checked');
+        this.CONFIG.user_selection.null_values = $('#' + this.CONFIG.prefix + 'null_values').is(':checked');
+        return this.CONFIG.user_selection;
     };
 
-    OPTIONS.prototype.csv_listener = function(user_selection, data) {
-        this.collect_user_selection();
-        swal('CSV Button');
+    OPTIONS.prototype.csv_listener = function() {
+        var data = [1, 2, 3, 4, 5];
+        this.CONFIG.csv_action(this.collect_user_selection(), data);
     };
 
     OPTIONS.prototype.show_as_menu = function() {
