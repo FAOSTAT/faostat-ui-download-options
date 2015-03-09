@@ -62,7 +62,10 @@ define(['jquery',
             flags_label: translate.flags,
             codes_label: translate.codes,
             units_label: translate.units,
-            null_values_label: translate.null_values
+            null_values_label: translate.null_values,
+            pdf_label: translate.pdf,
+            csv_label: translate.csv,
+            excel_label: translate.excel
         };
         var html = template(dynamic_data);
         $('#' + _this.CONFIG.placeholder_id).html(html);

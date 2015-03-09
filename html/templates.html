@@ -191,19 +191,19 @@
                 </div>
             </div>
             <div class='modal-footer'>
-                {{#if excel}}
-                <button type='button' class='btn btn-primary'>
-                    Excel
-                </button>
-                {{/if}}
                 {{#if pdf}}
                 <button type='button' class='btn btn-primary'>
-                    PDF
+                    <i class='fa fa-file-pdf-o'></i> {{pdf_label}}
                 </button>
                 {{/if}}
                 {{#if csv}}
                 <button type='button' class='btn btn-primary'>
-                    CSV
+                    <i class='fa fa-file-text-o'></i> {{csv_label}}
+                </button>
+                {{/if}}
+                {{#if excel}}
+                <button type='button' class='btn btn-primary'>
+                    <i class='fa fa-file-excel-o'></i> {{excel_label}}
                 </button>
                 {{/if}}
             </div>

@@ -11,7 +11,10 @@ define({
         codes: 'Codes',
         units: 'Units',
         null_values: 'Null Values',
-        download_as: 'Download As...'
+        download_as: 'Download As...',
+        csv: 'CSV',
+        excel: 'Excel',
+        pdf: 'PDF'
     },
     F : true,
     S : true
