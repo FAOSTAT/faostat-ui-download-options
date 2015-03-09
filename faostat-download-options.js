@@ -1,9 +1,9 @@
 define(['jquery',
-    'handlebars',
-    'text!faostat_download_options/html/templates.html',
-    'i18n!faostat_download_options/nls/translate',
-    'bootstrap',
-    'sweet-alert'], function ($, Handlebars, templates, translate) {
+        'handlebars',
+        'text!faostat_download_options/html/templates.html',
+        'i18n!faostat_download_options/nls/translate',
+        'bootstrap',
+        'sweet-alert'], function ($, Handlebars, templates, translate) {
 
     'use strict';
 
@@ -11,7 +11,14 @@ define(['jquery',
 
         this.CONFIG = {
             lang: 'E',
-            placeholder_id: 'placeholder'
+            placeholder_id: 'placeholder',
+            excel_button: true,
+            pdf_button: false,
+            csv_button: true,
+            decimal_separators: true,
+            thousand_separators: true,
+            decimal_numbers: true,
+            show_options: true
         };
 
     }
@@ -23,6 +30,46 @@ define(['jquery',
 
         /* Fix the language, if needed. */
         this.CONFIG.lang = this.CONFIG.lang != null ? this.CONFIG.lang : 'E';
+
+    };
+
+    OPTIONS.prototype.show_as_modal_window = function() {
+
+        /* this... */
+        var _this = this;
+
+        /* Load button template. */
+        var source = $(templates).filter('#modal_window_button').html();
+        var template = Handlebars.compile(source);
+        var dynamic_data = {
+            modal_window_button_id: translate.download_as,
+            modal_window_button_label: translate.download_as,
+            modal_window_id: 'modal_window_id',
+            modal_window_header_label: translate.button,
+            pdf: this.CONFIG.pdf_button,
+            csv: this.CONFIG.csv_button,
+            excel: this.CONFIG.excel_button,
+            decimal_separators: this.CONFIG.decimal_separators,
+            thousand_separators: this.CONFIG.thousand_separators,
+            decimal_numbers: this.CONFIG.decimal_numbers,
+            show_options: this.CONFIG.show_options,
+            decimal_separator_label: translate.decimal_separator,
+            comma_label: translate.comma,
+            period_label: translate.period,
+            thousand_separator_label: translate.thousand_separator,
+            decimal_numbers_label: translate.decimal_numbers,
+            show_label: translate.show,
+            flags_label: translate.flags,
+            codes_label: translate.codes,
+            units_label: translate.units,
+            null_values_label: translate.null_values
+        };
+        var html = template(dynamic_data);
+        $('#' + _this.CONFIG.placeholder_id).html(html);
+
+    };
+
+    OPTIONS.prototype.show_as_menu = function() {
 
         /* this... */
         var _this = this;

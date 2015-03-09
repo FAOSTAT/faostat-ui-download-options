@@ -10,7 +10,8 @@ define({
         flags: 'Flags',
         codes: 'Codes',
         units: 'Units',
-        null_values: 'Null Values'
+        null_values: 'Null Values',
+        download_as: 'Download As...'
     },
     F : true,
     S : true
