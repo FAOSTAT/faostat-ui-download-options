@@ -13,7 +13,7 @@ define(['jquery',
             lang: 'E',
             placeholder_id: 'placeholder',
             excel_button: true,
-            pdf_button: false,
+            pdf_button: true,
             ok_button: false,
             csv_button: true,
             decimal_separators: true,
@@ -32,7 +32,8 @@ define(['jquery',
             units_id: 'units',
             null_values_id: 'null_values',
             prefix: 'fenix_',
-            button_label: translate.button
+            button_label: translate.download_as,
+            header_label: translate.button
         };
 
     }
@@ -52,26 +53,15 @@ define(['jquery',
         /* this... */
         var _this = this;
 
-        console.log(this.CONFIG);
-
         /* Load button template. */
         var source = $(templates).filter('#modal_window_button').html();
         var template = Handlebars.compile(source);
+        console.log(this.CONFIG.prefix + this.CONFIG.decimal_separator_id);
         var dynamic_data = {
-            decimal_separator_id: this.CONFIG.prefix + this.CONFIG.decimal_separator_id,
-            thousand_separator_id: this.CONFIG.prefix + this.CONFIG.thousand_separator_id,
-            decimal_numbers_id: this.CONFIG.prefix + this.CONFIG.decimal_numbers_id,
-            flags_id: this.CONFIG.prefix + this.CONFIG.flags_id,
-            codes_id: this.CONFIG.prefix + this.CONFIG.codes_id,
-            units_id: this.CONFIG.prefix + this.CONFIG.units_id,
-            null_values_id: this.CONFIG.prefix + this.CONFIG.decimal_separator_id,
-            modal_window_button_id: translate.download_as,
-            modal_window_id: 'modal_window_id',
-            modal_window_header_label: translate.button,
+            modal_window_header_label: this.CONFIG.header_label,
             pdf: this.CONFIG.pdf_button,
             csv: this.CONFIG.csv_button,
             ok: this.CONFIG.ok_button,
-            ok_button_id: this.CONFIG.ok_button,
             ok_button_label: 'OK',
             excel: this.CONFIG.excel_button,
             decimal_separators: this.CONFIG.decimal_separators,
@@ -91,27 +81,32 @@ define(['jquery',
             pdf_label: translate.pdf,
             csv_label: translate.csv,
             excel_label: translate.excel,
-            pdf_button_id: this.CONFIG.pdf_button_id,
-            csv_button_id: this.CONFIG.csv_button_id,
-            excel_button_id: this.CONFIG.excel_button_id,
-            modal_window_button_label: this.CONFIG.button_label
+            modal_window_button_label: this.CONFIG.button_label,
+            prefix: this.CONFIG.prefix
         };
         var html = template(dynamic_data);
         $('#' + _this.CONFIG.placeholder_id).html(html);
 
         /* Link listeners to buttons. */
-        $('#' + this.CONFIG.csv_button_id).click(function() {
+        $('#' + this.CONFIG.prefix + 'csv_button').click(function() {
             _this.csv_listener();
         })
 
     };
 
     OPTIONS.prototype.collect_user_selection = function() {
-
+        this.CONFIG.user_selection.decimal_separator = $('#' + this.CONFIG.prefix + 'decimal_separator').val();
+        this.CONFIG.user_selection.thousand_separator = $('#' + this.CONFIG.prefix + 'thousand_separator').val();
+        this.CONFIG.user_selection.decimal_numbers = $('#' + this.CONFIG.prefix + 'decimal_numbers').val();
+        this.CONFIG.user_selection.flags = $('#' + this.CONFIG.prefix + 'flags').is(':checked')
+        this.CONFIG.user_selection.codes = $('#' + this.CONFIG.prefix + 'codes').is(':checked')
+        this.CONFIG.user_selection.units = $('#' + this.CONFIG.prefix + 'units').is(':checked')
+        this.CONFIG.user_selection.null_values = $('#' + this.CONFIG.prefix + 'null_values').is(':checked')
         console.log(this.CONFIG.user_selection);
     };
 
     OPTIONS.prototype.csv_listener = function(user_selection, data) {
+        this.collect_user_selection();
         swal('CSV Button');
     };
 

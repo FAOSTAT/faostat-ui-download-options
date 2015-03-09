@@ -87,11 +87,14 @@
 </template>
 
 <template id='modal_window_button'>
-    <button class='btn btn-primary' style='width: 100%;' id='{{modal_window_button_id}}' data-toggle='modal'
-            data-target='#{{modal_window_id}}'>
+    <button class='btn btn-primary'
+            style='width: 100%;'
+            id='{{prefix}}modal_window_button'
+            data-toggle='modal'
+            data-target='#{{prefix}}modal_window'>
         <i class='fa fa-download'></i> {{modal_window_button_label}}
     </button>
-    <div id='{{modal_window_id}}' class='modal'>
+    <div id='{{prefix}}modal_window' class='modal'>
         <div class='modal-dialog'>
             <div class='modal-content'>
                 <div class='modal-header'>
@@ -108,13 +111,13 @@
                             <hr class='standard-hr'>
                             <div class='radio'>
                                 <label>
-                                    <input type='radio' name='decimal_separator' id='{{decimal_separator_id}}'>
+                                    <input type='radio' value=',' name='{{prefix}}decimal_separator' id='{{prefix}}decimal_separator'>
                                     {{comma_label}}
                                 </label>
                             </div>
                             <div class='radio'>
                                 <label>
-                                    <input type='radio' name='decimal_separator' checked>
+                                    <input type='radio' value='.' name='{{prefix}}decimal_separator' checked>
                                     {{period_label}}
                                 </label>
                             </div>
@@ -128,13 +131,13 @@
                             <hr class='standard-hr'>
                             <div class='radio'>
                                 <label>
-                                    <input type='radio' name='thousand_separator' checked id='{{thousand_separator_id}}'>
+                                    <input type='radio' value=',' name='{{prefix}}thousand_separator' checked id='{{prefix}}thousand_separator'>
                                     {{comma_label}}
                                 </label>
                             </div>
                             <div class='radio'>
                                 <label>
-                                    <input type='radio' name='thousand_separator'>
+                                    <input type='radio' value='.' name='{{prefix}}thousand_separator'>
                                     {{period_label}}
                                 </label>
                             </div>
@@ -146,7 +149,7 @@
                                 {{decimal_numbers_label}}
                             </h7>
                             <hr class='standard-hr'>
-                            <input type='number' class='form-control' value='2' style='width: 100%;' id='{{decimal_numbers_id}}'>
+                            <input type='number' class='form-control' value='2' style='width: 100%;' id='{{prefix}}decimal_numbers'>
                         </div>
                         {{/if}}
                         {{#if show_options}}
@@ -157,25 +160,25 @@
                             <hr class='standard-hr'>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' checked id='{{flags_id}}'>
+                                    <input type='checkbox' checked id='{{prefix}}flags'>
                                     {{flags_label}}
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' checked id='{{codes_id}}'>
+                                    <input type='checkbox' checked id='{{prefix}}codes'>
                                     {{codes_label}}
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' id='{{units_id}}'>
+                                    <input type='checkbox' id='{{prefix}}unit'>
                                     {{units_label}}
                                 </label>
                             </div>
                             <div class='checkbox'>
                                 <label>
-                                    <input type='checkbox' id='{{null_values_id}}'>
+                                    <input type='checkbox' id='{{prefix}}null_values'>
                                     {{null_values_label}}
                                 </label>
                             </div>
@@ -185,22 +188,22 @@
                 </div>
                 <div class='modal-footer'>
                     {{#if pdf}}
-                    <button type='button' class='btn btn-primary fs-download-btn' id='{{pdf_button_id}}'>
+                    <button type='button' class='btn btn-primary fs-download-btn' id='{{prefix}}pdf_button'>
                         <i class='fa fa-file-pdf-o'></i> {{pdf_label}}
                     </button>
                     {{/if}}
                     {{#if csv}}
-                    <button type='button' class='btn btn-primary fs-download-btn' id='{{csv_button_id}}'>
+                    <button type='button' class='btn btn-primary fs-download-btn' id='{{prefix}}csv_button'>
                         <i class='fa fa-file-text-o'></i> {{csv_label}}
                     </button>
                     {{/if}}
                     {{#if excel}}
-                    <button type='button' class='btn btn-primary ' id='{{excel_button_id}}'>
+                    <button type='button' class='btn btn-primary ' id='{{prefix}}excel_button'>
                         <i class='fa fa-file-excel-o'></i> {{excel_label}}
                     </button>
                     {{/if}}
                     {{#if ok}}
-                    <button type='button' class='btn btn-primary ' id='{{ok_button_id}}'>
+                    <button type='button' class='btn btn-primary ' id='{{prefix}}ok_button'>
                         <i class='fa fa-check'></i> {{ok_button_label}}
                     </button>
                     {{/if}}
