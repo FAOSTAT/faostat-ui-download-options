@@ -19,9 +19,9 @@ download_options.show_as_modal_window();
 Available Options
 -----------------
 
-| Option Name | Description | Example |
-|-------------|-------------|---------|
-| lang        | Language of the UI labels. | 'E', 'F', 'S' |
+| Option Name | Description | Default | Allowed Values |Example |
+|-------------|-------------|---------|----------------|--------|
+| lang        | Language of the UI labels. | E | E<br>F<br>S|lang: 'E'|
 
 Button Listeners
 ----------------
