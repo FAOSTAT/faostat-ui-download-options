@@ -28,6 +28,11 @@ Available Options
 | pdf_button | Flag to determine whether to display the PDF button or not. | true | true<br>false | pdf_button: false |
 | ok_button | Flag to determine whether to display the OK button or not. | false | true<br>false | ok_button: false |
 | csv_button | Flag to determine whether to display the CSV button or not. | true | true<br>false | csv_button: false |
+| decimal_separators | Flag to determine whether to display the decimal separator settings button or not. | true |  true<br>false | decimal_separators: false |
+| thousand_separators | Flag to determine whether to display the thousand separator settings button or not. | true |  true<br>false | thousand_separators: false |
+| decimal_numbers | Flag to determine whether to display the decimal numbers settings button or not. | true |  true<br>false | decimal_numbers: false |
+| show_options | Flag to determine whether to display the options (_e.g. codes, f;ags, etc._) settings button or not. | true |  true<br>false | show_options: false |
+| pdf_button_id | String to be combined with the prefix to create the ID of the PDF button. | pdf_button_id | n.a. | pdf_button_id: 'my_id' |
 
 Button Listeners
 ----------------
