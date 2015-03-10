@@ -71,7 +71,7 @@ The ```user_selection``` object is structured as follows:
 }
 ```
 
-Available Options
+Available Configuration Options
 -----------------
 
 | Option Name | Description | Default | Allowed Values |Example |
