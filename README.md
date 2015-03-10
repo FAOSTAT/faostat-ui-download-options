@@ -23,6 +23,11 @@ Available Options
 |-------------|-------------|---------|----------------|--------|
 | lang        | Language of the UI labels. | E | E<br>F<br>S|lang: 'E'|
 | placeholder_id | ID where the component will be rendered. | placeholder_id | n.a. | placeholder_id: 'download_options_placeholder'| 
+| prefix | Prefix to be added to all the ID's to avoid conflicts in the same page. | fenix_ | n.a. | prefix: prefix + 'download_' |
+| excel_button | Flag to determine whether to display the Excel button or not. | true | true<br>false | excel_button: false |
+| pdf_button | Flag to determine whether to display the PDF button or not. | true | true<br>false | pdf_button: false |
+| ok_button | Flag to determine whether to display the OK button or not. | false | true<br>false | ok_button: false |
+| csv_button | Flag to determine whether to display the CSV button or not. | true | true<br>false | csv_button: false |
 
 Button Listeners
 ----------------
