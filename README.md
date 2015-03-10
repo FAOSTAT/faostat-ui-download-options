@@ -1,7 +1,7 @@
 FENIX UI Download Options
 =========================
 
-Generic component that creates a modal window to collect user preferences about the formatting of the output format.
+Generic component that presents the user with a modal window to collect preferences about the output format (e.g. file format, number of decimal places, etc.)
 
 Example
 -------
@@ -18,6 +18,10 @@ download_options.show_as_modal_window();
 
 Available Options
 -----------------
+
+| Option Name | Description | Example |
+|-------------|-------------|---------|
+| lang        | Language of the UI labels. | 'E', 'F', 'S' |
 
 Button Listeners
 ----------------
