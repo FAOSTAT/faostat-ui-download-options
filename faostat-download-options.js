@@ -137,7 +137,7 @@ define(['jquery',
      * @param {function} callback This function must take two objects as argument: user selection and data
      * @param {Object} callback_data Data to be downloaded/exported.
      */
-    OPTIONS.prototype.download_action = function(callback, callback_data) {
+    OPTIONS.prototype.onDownload = function(callback_data, callback) {
         amplify.subscribe(this.CONFIG.prefix + 'event', function(user_selection) {
             callback(user_selection, callback_data);
         });
