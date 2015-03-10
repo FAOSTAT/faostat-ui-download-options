@@ -82,7 +82,20 @@ var callback = function(user_selection, data) {
 };
 
 /* Bind the callback to the window's buttons. */
-download_options.download_action(callback, my_data);
+download_options.onDownload(my_data, callback);
 ```
 
-The ```user_selection``` object 
+The ```user_selection``` object is structured as follows:
+
+```javascript
+{
+  codes: true,
+  decimal_numbers: '2',
+  decimal_separator: ',',
+  flags: true,
+  null_values: false,
+  output_format: 'xls',
+  thousand_separator: ',',
+  units: false
+}
+```
