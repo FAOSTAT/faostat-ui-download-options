@@ -29,6 +29,8 @@ download_options.init({
   prefix: prefix + 'download_',
   placeholder_id: 'download_options_placeholder'
 });
+
+/* Render the button that opens the modal window. */
 download_options.show_as_modal_window();
 ```
 
