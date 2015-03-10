@@ -9,7 +9,7 @@ Example
 ```javascript
 /* Initiate download options. */
 download_options.init({
-  lang: lang,
+  lang: 'E',
   prefix: prefix + 'download_',
   placeholder_id: 'download_options_placeholder'
 });
@@ -22,6 +22,7 @@ Available Options
 | Option Name | Description | Default | Allowed Values |Example |
 |-------------|-------------|---------|----------------|--------|
 | lang        | Language of the UI labels. | E | E<br>F<br>S|lang: 'E'|
+| placeholder_id | ID where the component will be rendered. | placeholder_id | n.a. | placeholder_id: 'download_options_placeholder'| 
 
 Button Listeners
 ----------------
