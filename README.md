@@ -66,7 +66,7 @@ Available Options
 Button Listeners
 ----------------
 
-Each button publish an AmplifyJS event that collects and stores in an object the user selection. This object can be accessed by implementing the ```download_action``` function of the component. This function accepts as arguments a callback and an object containing the data to be downloaded/exported. Such callback is invoked everytime the user hits one of the buttons at the bottom of the window.
+Each button publish an AmplifyJS event that collects and stores in an object the user selection. This object can be accessed by implementing the ```onDownload``` function of the component. This function accepts as arguments a callback and an object containing the data to be downloaded/exported. Such callback is invoked everytime the user hits one of the buttons at the bottom of the window.
 
 ```javascript
 /* Data to be downloaded/exported. */
