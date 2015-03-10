@@ -65,3 +65,24 @@ Available Options
 
 Button Listeners
 ----------------
+
+Each button publish an AmplifyJS event that collects and stores in an object the user selection. This object can be accessed by implementing the ```download_action``` function of the component. This function accepts as arguments a callback and an object containing the data to be downloaded/exported. Such callback is invoked everytime the user hits one of the buttons at the bottom of the window.
+
+```javascript
+/* Data to be downloaded/exported. */
+var my_data = [[1990, 'Potato', 215.00, 't']]
+
+/* Callback function. */
+var callback = function(user_selection, data) {
+  switch (user_selection.output_format) {
+    case 'csv':
+      /* do something with my_data */
+      break;
+  }
+};
+
+/* Bind the callback to the window's buttons. */
+download_options.download_action(callback, my_data);
+```
+
+The ```user_selection``` object 
