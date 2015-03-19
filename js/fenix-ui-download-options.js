@@ -1,9 +1,9 @@
 define(['jquery',
         'handlebars',
-        'text!faostat_download_options/html/templates.html',
-        'i18n!faostat_download_options/nls/translate',
+        'text!fenix_ui_download_options/html/templates.html',
+        'i18n!fenix_ui_download_options/nls/translate',
         'bootstrap',
-        'sweet-alert',
+        'sweetAlert',
         'amplify'], function ($, Handlebars, templates, translate) {
 
     'use strict';
