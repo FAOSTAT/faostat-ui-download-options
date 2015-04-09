@@ -1,10 +1,11 @@
 define(['jquery',
         'handlebars',
+        'FAOSTAT_UI_COMMONS',
         'text!fenix_ui_download_options/html/templates.html',
         'i18n!fenix_ui_download_options/nls/translate',
         'bootstrap',
         'sweetAlert',
-        'amplify'], function ($, Handlebars, templates, translate) {
+        'amplify'], function ($, Handlebars, Commons, templates, translate) {
 
     'use strict';
 
@@ -13,6 +14,7 @@ define(['jquery',
         this.CONFIG = {
 
             lang: 'E',
+            lang_faostat: 'E',
             placeholder_id: 'placeholder',
             user_selection: {},
             prefix: 'fenix_',
@@ -52,6 +54,9 @@ define(['jquery',
 
         /* Fix the language, if needed. */
         this.CONFIG.lang = this.CONFIG.lang != null ? this.CONFIG.lang : 'E';
+
+        /* Store FAOSTAT language. */
+        this.CONFIG.lang_faostat = Commons.iso2faostat(this.CONFIG.lang);
 
     };
 
