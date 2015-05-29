@@ -2,8 +2,8 @@ define(function() {
 
     var config = {
         paths: {
-            FAOSTAT_DOWNLOAD_OPTIONS: 'faostat-download-options',
-            faostat_download_options: '../'
+            FENIX_UI_DOWNLOAD_OPTIONS: 'fenix-ui-download-options',
+            fenix_ui_download_options: '../'
         },
         shim: {
             bootstrap: {
