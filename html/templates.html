@@ -16,14 +16,14 @@
             </div>
             <hr class='standard-hr'>
             <div class='radio'>
-                <label>
-                    <input type='radio' name='decimal_separator' id='decimal_separator'>
+                <input type='radio' name='decimal_separator' id='decimal_separator'>
+                <label for="decimal_separator">
                     {{comma_label}}
                 </label>
             </div>
             <div class='radio'>
-                <label>
-                    <input type='radio' name='decimal_separator' checked>
+                <input type='radio' name='decimal_separator' id='period_separator'>
+                <label for="period_separator">
                     {{period_label}}
                 </label>
             </div>
@@ -34,14 +34,15 @@
             </div>
             <hr class='standard-hr'>
             <div class='radio'>
+                <input type='radio' name='thousand_separator' checked id='thousand_separator'>
                 <label>
-                    <input type='radio' name='thousand_separator' checked id='thousand_separator'>
                     {{comma_label}}
                 </label>
             </div>
             <div class='radio'>
+                <input type='radio' name='thousand_separator'>
                 <label>
-                    <input type='radio' name='thousand_separator'>
+
                     {{period_label}}
                 </label>
             </div>
@@ -58,27 +59,32 @@
                 {{show_label}}
             </div>
             <hr class='standard-hr'>
+
             <div class='checkbox'>
+                <input type='checkbox' checked id='flags'>
                 <label>
-                    <input type='checkbox' checked id='flags'>
+
                     {{flags_label}}
                 </label>
             </div>
             <div class='checkbox'>
+                <input type='checkbox' checked id='codes'>
                 <label>
-                    <input type='checkbox' checked id='codes'>
+
                     {{codes_label}}
                 </label>
             </div>
             <div class='checkbox'>
+                <input type='checkbox' id='units'>
                 <label>
-                    <input type='checkbox' id='units'>
+
                     {{units_label}}
                 </label>
             </div>
             <div class='checkbox'>
+                <input type='checkbox' id='null_values'>
                 <label>
-                    <input type='checkbox' id='null_values'>
+
                     {{null_values_label}}
                 </label>
             </div>
@@ -88,7 +94,7 @@
 
 <script type='text/x-handlebars-template' id='modal_window_button'>
     <button class='btn btn-primary'
-            style='width: 100%;'
+
             id='{{prefix}}modal_window_button'
             data-toggle='modal'
             data-target='#{{prefix}}modal_window'>
@@ -110,14 +116,14 @@
                             </h7>
                             <hr class='standard-hr'>
                             <div class='radio'>
-                                <label>
-                                    <input type='radio' value=',' name='{{prefix}}decimal_separator' id='{{prefix}}decimal_separator'>
+                                <input type='radio' value=',' name='{{prefix}}decimal_separator' id='{{prefix}}decimal_separator'>
+                                <label for="{{prefix}}decimal_separator">
                                     {{comma_label}}
                                 </label>
                             </div>
                             <div class='radio'>
-                                <label>
-                                    <input type='radio' value='.' name='{{prefix}}decimal_separator' checked>
+                                <input type='radio' value='.' name='{{prefix}}decimal_separator' id='{{prefix}}decimal_separator_period' checked>
+                                <label for="{{prefix}}decimal_separator_period">
                                     {{period_label}}
                                 </label>
                             </div>
@@ -130,14 +136,14 @@
                             </h7>
                             <hr class='standard-hr'>
                             <div class='radio'>
-                                <label>
-                                    <input type='radio' value=',' name='{{prefix}}thousand_separator' checked id='{{prefix}}thousand_separator'>
+                                <input type='radio' value=',' name='{{prefix}}thousand_separator' checked id='{{prefix}}thousand_separator'>
+                                <label for="{{prefix}}thousand_separator">
                                     {{comma_label}}
                                 </label>
                             </div>
                             <div class='radio'>
-                                <label>
-                                    <input type='radio' value='.' name='{{prefix}}thousand_separator'>
+                                <input type='radio' value='.' name='{{prefix}}thousand_separator' id='{{prefix}}thousand_separator_period'>
+                                <label for="{{prefix}}thousand_separator_period">
                                     {{period_label}}
                                 </label>
                             </div>
@@ -158,27 +164,28 @@
                                 {{show_label}}
                             </h7>
                             <hr class='standard-hr'>
+
                             <div class='checkbox'>
-                                <label>
-                                    <input type='checkbox' checked id='{{prefix}}flags'>
+                                <input type='checkbox' checked id='{{prefix}}flags'>
+                                <label for="{{prefix}}flags">
                                     {{flags_label}}
                                 </label>
                             </div>
                             <div class='checkbox'>
-                                <label>
-                                    <input type='checkbox' checked id='{{prefix}}codes'>
+                                <input type='checkbox' checked id='{{prefix}}codes'>
+                                <label for="{{prefix}}codes">
                                     {{codes_label}}
                                 </label>
                             </div>
                             <div class='checkbox'>
-                                <label>
-                                    <input type='checkbox' id='{{prefix}}unit'>
+                                <input type='checkbox' id='{{prefix}}unit'>
+                                <label for="{{prefix}}unit">
                                     {{units_label}}
                                 </label>
                             </div>
                             <div class='checkbox'>
-                                <label>
-                                    <input type='checkbox' id='{{prefix}}null_values'>
+                                <input type='checkbox' id='{{prefix}}null_values'>
+                                <label for="{{prefix}}null_values">
                                     {{null_values_label}}
                                 </label>
                             </div>
