@@ -1,6 +1,6 @@
 define(['jquery',
         'handlebars',
-        'text!fenix_ui_download_options/html/templates.html',
+        'text!fenix_ui_download_options/html/templates.hbs',
         'i18n!fenix_ui_download_options/nls/translate',
         'bootstrap',
         'sweetAlert',
