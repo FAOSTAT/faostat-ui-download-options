@@ -119,6 +119,10 @@ define(['jquery',
         return this.CONFIG.user_selection;
     };
 
+    OPTIONS.prototype.get_radio_button = function(radio_button_code) {
+        return $('#' + this.CONFIG.prefix + radio_button_code);
+    };
+
     /**
      * This function publish an event through AmplifyJS. This event will be used by the component
      * that will show/export the data.
