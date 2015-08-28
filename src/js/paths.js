@@ -1,9 +1,12 @@
-define(function() {
+/*global define*/
+define(function () {
+
+    'use strict';
 
     var config = {
         paths: {
-            FENIX_UI_DOWNLOAD_OPTIONS: 'fenix-ui-download-options',
-            fenix_ui_download_options: '../'
+            FENIX_UI_DOWNLOAD_OPTIONS: 'start',
+            fenix_ui_download_options: '../../'
         },
         shim: {
             bootstrap: {
