@@ -1,16 +1,16 @@
 <script type='text/x-handlebars-template' id='main_structure'>
     <div class='row'>
-        <div class='col-xs-12 col-sm-8 col-md-8 col-lg-8'>
+        <div class='col-lg-8'>
             &nbsp;
         </div>
-        <div class='col-xs-12 col-sm-4 col-md-4 col-lg-4'>
+        <div class='col-lg-4'>
             <button class='btn btn-default' style='width: 100%;' id='show_hide_button'>
                 <i class='fa fa-file-excel-o'></i> {{button_label}}
             </button>
         </div>
     </div>
     <div class='row' id='options_box' style='display: none; margin-top: 4px; border: 1px solid #399BCC;'>
-        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+        <div class='col-lg-3'>
             <div class='standard-title'>
                 {{decimal_separator_label}}
             </div>
@@ -28,7 +28,7 @@
                 </label>
             </div>
         </div>
-        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+        <div class='col-lg-3'>
             <div class='standard-title'>
                 {{thousand_separator_label}}
             </div>
@@ -47,14 +47,14 @@
                 </label>
             </div>
         </div>
-        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+        <div class='col-lg-3'>
             <div class='standard-title'>
                 {{decimal_numbers_label}}
             </div>
             <hr class='standard-hr'>
             <input type='number' class='form-control' value='2' style='width: 100%;' id='decimal_numbers'>
         </div>
-        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+        <div class='col-lg-3'>
             <div class='standard-title'>
                 {{show_label}}
             </div>
@@ -110,7 +110,7 @@
                 <div class='modal-body'>
                     <div class='row'>
                         {{#if decimal_separators}}
-                        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                        <div class='col-lg-3'>
                             <h7>
                                 {{decimal_separator_label}}
                             </h7>
@@ -130,7 +130,7 @@
                         </div>
                         {{/if}}
                         {{#if thousand_separators}}
-                        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                        <div class='col-lg-3'>
                             <h7>
                                 {{thousand_separator_label}}
                             </h7>
@@ -150,7 +150,7 @@
                         </div>
                         {{/if}}
                         {{#if decimal_numbers}}
-                        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                        <div class='col-lg-3'>
                             <h7>
                                 {{decimal_numbers_label}}
                             </h7>
@@ -159,7 +159,7 @@
                         </div>
                         {{/if}}
                         {{#if show_options}}
-                        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+                        <div class='col-lg-3'>
                             <h7>
                                 {{show_label}}
                             </h7>
