@@ -113,7 +113,6 @@ define(['jquery',
             null_values_checked: this.CONFIG.null_values_value ? 'checked' : ''
         };
         html = template(dynamic_data);
-        console.debug(this.CONFIG.decimal_numbers);
         $('#' + that.CONFIG.placeholder_id).html(html);
 
     };
@@ -151,13 +150,13 @@ define(['jquery',
      * @returns {Object} An object describing the selection made by the user through this component.
      */
     OPTIONS.prototype.collect_user_selection = function (output_format) {
-        this.CONFIG.user_selection.decimal_separator = $('input[name="' + this.CONFIG.prefix + 'decimal_separator"]:checked').val();
-        this.CONFIG.user_selection.thousand_separator = $('input[name="' + this.CONFIG.prefix + 'thousand_separator"]:checked').val();
-        this.CONFIG.user_selection.decimal_numbers = $('#' + this.CONFIG.prefix + 'decimal_numbers').val();
-        this.CONFIG.user_selection.flags = $('#' + this.CONFIG.prefix + 'flags').is(':checked');
-        this.CONFIG.user_selection.codes = $('#' + this.CONFIG.prefix + 'codes').is(':checked');
-        this.CONFIG.user_selection.units = $('#' + this.CONFIG.prefix + 'units').is(':checked');
-        this.CONFIG.user_selection.null_values = $('#' + this.CONFIG.prefix + 'null_values').is(':checked');
+        this.CONFIG.user_selection.decimal_separator_value = $('input[name="' + this.CONFIG.prefix + 'decimal_separator"]:checked').val();
+        this.CONFIG.user_selection.thousand_separator_value = $('input[name="' + this.CONFIG.prefix + 'thousand_separator"]:checked').val();
+        this.CONFIG.user_selection.decimal_numbers_value = $('#' + this.CONFIG.prefix + 'decimal_numbers').val();
+        this.CONFIG.user_selection.flags_value = $('#' + this.CONFIG.prefix + 'flags').is(':checked');
+        this.CONFIG.user_selection.codes_value = $('#' + this.CONFIG.prefix + 'codes').is(':checked');
+        this.CONFIG.user_selection.units_value = $('#' + this.CONFIG.prefix + 'units').is(':checked');
+        this.CONFIG.user_selection.null_values_value = $('#' + this.CONFIG.prefix + 'null_values').is(':checked');
         if (output_format) {
             this.CONFIG.user_selection.origin = output_format;
             this.CONFIG.user_selection.output_format = output_format;
