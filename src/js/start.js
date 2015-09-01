@@ -48,7 +48,13 @@ define(['jquery',
             flags_value: true,
             codes_value: true,
             units_value: true,
-            null_values_value: false
+            null_values_value: false,
+
+            callback: {
+                onCodesChange: null,
+                onFlagsChange: null,
+                onUnitsChange: null
+            }
 
         };
 
@@ -115,6 +121,23 @@ define(['jquery',
         html = template(dynamic_data);
         $('#' + that.CONFIG.placeholder_id).html(html);
 
+        /* Listeners for radio button changes. */
+        $('#' + this.CONFIG.prefix + 'codes').change(function () {
+            if (that.CONFIG.callback.onCodesChange) {
+                that.CONFIG.callback.onCodesChange($(this).is(':checked'));
+            }
+        });
+        $('#' + this.CONFIG.prefix + 'unit').change(function () {
+            if (that.CONFIG.callback.onUnitsChange) {
+                that.CONFIG.callback.onUnitsChange($(this).is(':checked'));
+            }
+        });
+        $('#' + this.CONFIG.prefix + 'flags').change(function () {
+            if (that.CONFIG.callback.onFlagsChange) {
+                that.CONFIG.callback.onFlagsChange($(this).is(':checked'));
+            }
+        });
+
     };
 
     OPTIONS.prototype.show_as_modal_window = function () {
@@ -155,7 +178,7 @@ define(['jquery',
         this.CONFIG.user_selection.decimal_numbers_value = $('#' + this.CONFIG.prefix + 'decimal_numbers').val();
         this.CONFIG.user_selection.flags_value = $('#' + this.CONFIG.prefix + 'flags').is(':checked');
         this.CONFIG.user_selection.codes_value = $('#' + this.CONFIG.prefix + 'codes').is(':checked');
-        this.CONFIG.user_selection.units_value = $('#' + this.CONFIG.prefix + 'units').is(':checked');
+        this.CONFIG.user_selection.units_value = $('#' + this.CONFIG.prefix + 'unit').is(':checked');
         this.CONFIG.user_selection.null_values_value = $('#' + this.CONFIG.prefix + 'null_values').is(':checked');
         if (output_format) {
             this.CONFIG.user_selection.origin = output_format;

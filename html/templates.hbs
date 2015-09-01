@@ -1,97 +1,3 @@
-<script type='text/x-handlebars-template' id='main_structure'>
-    <div class='row'>
-        <div class='col-lg-8'>
-            &nbsp;
-        </div>
-        <div class='col-lg-4'>
-            <button class='btn btn-default' style='width: 100%;' id='show_hide_button'>
-                <i class='fa fa-file-excel-o'></i> {{button_label}}
-            </button>
-        </div>
-    </div>
-    <div class='row' id='options_box' style='display: none; margin-top: 4px; border: 1px solid #399BCC;'>
-        <div class='col-lg-3'>
-            <div class='standard-title'>
-                {{decimal_separator_label}}
-            </div>
-            <hr class='standard-hr'>
-            <div class='radio'>
-                <input type='radio' name='decimal_separator' id='decimal_separator'>
-                <label for="decimal_separator">
-                    {{comma_label}}
-                </label>
-            </div>
-            <div class='radio'>
-                <input type='radio' name='decimal_separator' id='period_separator'>
-                <label for="period_separator">
-                    {{period_label}}
-                </label>
-            </div>
-        </div>
-        <div class='col-lg-3'>
-            <div class='standard-title'>
-                {{thousand_separator_label}}
-            </div>
-            <hr class='standard-hr'>
-            <div class='radio'>
-                <input type='radio' name='thousand_separator' checked id='thousand_separator'>
-                <label>
-                    {{comma_label}}
-                </label>
-            </div>
-            <div class='radio'>
-                <input type='radio' name='thousand_separator'>
-                <label>
-
-                    {{period_label}}
-                </label>
-            </div>
-        </div>
-        <div class='col-lg-3'>
-            <div class='standard-title'>
-                {{decimal_numbers_label}}
-            </div>
-            <hr class='standard-hr'>
-            <input type='number' class='form-control' value='2' style='width: 100%;' id='decimal_numbers'>
-        </div>
-        <div class='col-lg-3'>
-            <div class='standard-title'>
-                {{show_label}}
-            </div>
-            <hr class='standard-hr'>
-
-            <div class='checkbox'>
-                <input type='checkbox' checked id='flags'>
-                <label>
-
-                    {{flags_label}}
-                </label>
-            </div>
-            <div class='checkbox'>
-                <input type='checkbox' checked id='codes'>
-                <label>
-
-                    {{codes_label}}
-                </label>
-            </div>
-            <div class='checkbox'>
-                <input type='checkbox' id='units'>
-                <label>
-
-                    {{units_label}}
-                </label>
-            </div>
-            <div class='checkbox'>
-                <input type='checkbox' id='null_values'>
-                <label>
-
-                    {{null_values_label}}
-                </label>
-            </div>
-        </div>
-    </div>
-</script>
-
 <script type='text/x-handlebars-template' id='modal_window_button'>
     <button class='btn btn-primary'
             id='{{prefix}}modal_window_button'
@@ -110,9 +16,9 @@
                     <div class='row'>
                         {{#if decimal_separators}}
                         <div class='col-lg-3'>
-                            <h7>
+                            <p>
                                 {{decimal_separator_label}}
-                            </h7>
+                            </p>
                             <hr class='standard-hr'>
                             <div class='radio'>
                                 <input type='radio' value=',' name='{{prefix}}decimal_separator' id='{{prefix}}decimal_separator' {{decimal_separator_comma_checked}}>
@@ -130,9 +36,9 @@
                         {{/if}}
                         {{#if thousand_separators}}
                         <div class='col-lg-3'>
-                            <h7>
+                            <p>
                                 {{thousand_separator_label}}
-                            </h7>
+                            </p>
                             <hr class='standard-hr'>
                             <div class='radio'>
                                 <input type='radio' value=',' name='{{prefix}}thousand_separator' checked id='{{prefix}}thousand_separator' {{thousand_separator_comma_checked}}>
@@ -150,18 +56,18 @@
                         {{/if}}
                         {{#if decimal_numbers}}
                         <div class='col-lg-3'>
-                            <h7>
+                            <p>
                                 {{decimal_numbers_label}}
-                            </h7>
+                            </p>
                             <hr class='standard-hr'>
                             <input type='number' class='form-control' value='{{decimal_numbers_value}}' style='width: 100%;' id='{{prefix}}decimal_numbers'>
                         </div>
                         {{/if}}
                         {{#if show_options}}
                         <div class='col-lg-3'>
-                            <h7>
+                            <p>
                                 {{show_label}}
-                            </h7>
+                            </p>
                             <hr class='standard-hr'>
                             <div class='checkbox'>
                                 <input type='checkbox' id='{{prefix}}flags' {{flags_checked}}>
