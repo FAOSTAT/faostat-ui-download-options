@@ -138,6 +138,28 @@ define(['jquery',
             }
         });
 
+        /* Link decimal and thousand separators. */
+        if (this.CONFIG.decimal_separators && this.CONFIG.thousand_separators) {
+            $("input:radio[name=" + that.CONFIG.prefix + "decimal_separator]").change(function () {
+                if ($(this).val() === '.') {
+                    $('#' + that.CONFIG.prefix + 'thousand_separator').prop('checked', true);
+                    $('#' + that.CONFIG.prefix + 'thousand_separator_period').prop('checked', false);
+                } else if ($(this).val() === ',') {
+                    $('#' + that.CONFIG.prefix + 'thousand_separator').prop('checked', false);
+                    $('#' + that.CONFIG.prefix + 'thousand_separator_period').prop('checked', true);
+                }
+            });
+            $("input:radio[name=" + that.CONFIG.prefix + "thousand_separator]").change(function () {
+                if ($(this).val() === '.') {
+                    $('#' + that.CONFIG.prefix + 'decimal_separator').prop('checked', true);
+                    $('#' + that.CONFIG.prefix + 'decimal_separator_period').prop('checked', false);
+                } else if ($(this).val() === ',') {
+                    $('#' + that.CONFIG.prefix + 'decimal_separator').prop('checked', false);
+                    $('#' + that.CONFIG.prefix + 'decimal_separator_period').prop('checked', true);
+                }
+            });
+        }
+
     };
 
     OPTIONS.prototype.show_as_modal_window = function () {
@@ -153,10 +175,10 @@ define(['jquery',
         $('#' + this.CONFIG.prefix + 'unit').change(function () { that.option_changed_listener(); });
         $('#' + this.CONFIG.prefix + 'codes').change(function () { that.option_changed_listener(); });
         $('#' + this.CONFIG.prefix + 'flags').change(function () { that.option_changed_listener(); });
-        $('#' + this.CONFIG.prefix + 'thousand_separator').click(function () { that.option_changed_listener(); });
-        $('#' + this.CONFIG.prefix + 'thousand_separator_period').click(function () { that.option_changed_listener(); });
-        $('#' + this.CONFIG.prefix + 'decimal_separator').click(function () { that.option_changed_listener(); });
-        $('#' + this.CONFIG.prefix + 'decimal_separator_period').click(function () { that.option_changed_listener(); });
+        $('#' + this.CONFIG.prefix + 'thousand_separator').change(function () { that.option_changed_listener(); });
+        $('#' + this.CONFIG.prefix + 'thousand_separator_period').change(function () { that.option_changed_listener(); });
+        $('#' + this.CONFIG.prefix + 'decimal_separator').change(function () { that.option_changed_listener(); });
+        $('#' + this.CONFIG.prefix + 'decimal_separator_period').change(function () { that.option_changed_listener(); });
         $('#' + this.CONFIG.prefix + 'decimal_numbers').change(function () { that.option_changed_listener(); });
 
     };
