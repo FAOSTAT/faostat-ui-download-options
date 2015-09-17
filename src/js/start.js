@@ -74,10 +74,15 @@ define(['jquery',
 
         /* Variables. */
         var that = this,
+            partial_source,
             source,
             template,
             dynamic_data,
             html;
+
+        /* Register Handlebars's partial. */
+        partial_source = $(templates).filter('#options_panel').html();
+        Handlebars.registerPartial('options_panel', partial_source);
 
         /* Load button template. */
         source = $(templates).filter('#modal_window_button').html();
