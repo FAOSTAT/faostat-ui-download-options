@@ -13,6 +13,8 @@ define(['jquery',
 
         this.CONFIG = {
 
+            mode: 'window',
+
             lang: 'E',
             placeholder_id: 'placeholder',
             user_selection: {},
@@ -80,13 +82,26 @@ define(['jquery',
             dynamic_data,
             html;
 
-        /* Register Handlebars's partial. */
-        partial_source = $(templates).filter('#options_panel').html();
-        Handlebars.registerPartial('options_panel', partial_source);
+        /* Render template according to the mode: window (default) or panel. */
+        if (this.CONFIG.mode === 'window') {
 
-        /* Load button template. */
-        source = $(templates).filter('#modal_window_button').html();
-        template = Handlebars.compile(source);
+            /* Register Handlebars's partial. */
+            partial_source = $(templates).filter('#options_panel').html();
+            Handlebars.registerPartial('options_panel', partial_source);
+
+            /* Load button template. */
+            source = $(templates).filter('#modal_window_button').html();
+            template = Handlebars.compile(source);
+
+        } else if (this.CONFIG.mode === 'panel') {
+
+            /* Load panel template. */
+            source = $(templates).filter('#options_panel').html();
+            template = Handlebars.compile(source);
+
+        }
+
+        /* Inject values in the placeholders. */
         dynamic_data = {
             ok_button_label: 'OK',
             pdf_label: translate.pdf,
@@ -125,6 +140,16 @@ define(['jquery',
         };
         html = template(dynamic_data);
         $('#' + that.CONFIG.placeholder_id).html(html);
+
+        /* Apply listeners. */
+        this.apply_listeners();
+
+    };
+
+    OPTIONS.prototype.apply_listeners = function () {
+
+        /* Variables. */
+        var that = this;
 
         /* Listeners for radio button changes. */
         $('#' + this.CONFIG.prefix + 'codes').change(function () {
@@ -167,7 +192,7 @@ define(['jquery',
 
     };
 
-    OPTIONS.prototype.show_as_modal_window = function () {
+    OPTIONS.prototype.show = function () {
 
         /* Variables. */
         var that = this;
@@ -176,16 +201,26 @@ define(['jquery',
         this.apply_configuration();
 
         /* Add listeners for change events. */
-        $('#' + this.CONFIG.prefix + 'null_values').change(function () { that.option_changed_listener(); });
         $('#' + this.CONFIG.prefix + 'unit').change(function () { that.option_changed_listener(); });
         $('#' + this.CONFIG.prefix + 'codes').change(function () { that.option_changed_listener(); });
         $('#' + this.CONFIG.prefix + 'flags').change(function () { that.option_changed_listener(); });
-        $('#' + this.CONFIG.prefix + 'thousand_separator').change(function () { that.option_changed_listener(); });
-        $('#' + this.CONFIG.prefix + 'thousand_separator_period').change(function () { that.option_changed_listener(); });
-        $('#' + this.CONFIG.prefix + 'decimal_separator').change(function () { that.option_changed_listener(); });
-        $('#' + this.CONFIG.prefix + 'decimal_separator_period').change(function () { that.option_changed_listener(); });
+        $('#' + this.CONFIG.prefix + 'null_values').change(function () { that.option_changed_listener(); });
         $('#' + this.CONFIG.prefix + 'decimal_numbers').change(function () { that.option_changed_listener(); });
+        $('#' + this.CONFIG.prefix + 'decimal_separator').change(function () { that.option_changed_listener(); });
+        $('#' + this.CONFIG.prefix + 'thousand_separator').change(function () { that.option_changed_listener(); });
+        $('#' + this.CONFIG.prefix + 'decimal_separator_period').change(function () { that.option_changed_listener(); });
+        $('#' + this.CONFIG.prefix + 'thousand_separator_period').change(function () { that.option_changed_listener(); });
 
+    };
+
+    OPTIONS.prototype.show_as_modal_window = function () {
+        this.CONFIG.mode = 'window';
+        this.show();
+    };
+
+    OPTIONS.prototype.show_as_panel = function () {
+        this.CONFIG.mode = 'panel';
+        this.show();
     };
 
     OPTIONS.prototype.option_changed_listener = function () {
