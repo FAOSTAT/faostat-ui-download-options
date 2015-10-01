@@ -5,7 +5,7 @@ define({
         comma: 'Comma',
         period: 'Period',
         thousand_separator: 'Thousand Separator',
-        decimal_numbers: 'Decimal Numbers',
+        decimal_numbers: 'Decimal Places',
         show: 'Show',
         flags: 'Flags',
         codes: 'Codes',
