@@ -29,6 +29,7 @@ define(['jquery',
             thousand_separators: true,
             decimal_numbers: true,
             show_options: true,
+            output_type: true,
 
             pdf_button_id: 'pdf_button_id',
             csv_button_id: 'csv_button_id',
@@ -51,6 +52,9 @@ define(['jquery',
             codes_value: true,
             units_value: true,
             null_values_value: false,
+
+            table_value: true,
+            pivot_value: false,
 
             callback: {
                 onCodesChange: null,
@@ -136,7 +140,13 @@ define(['jquery',
             flags_checked: this.CONFIG.flags_value ? 'checked' : '',
             codes_checked: this.CONFIG.codes_value ? 'checked' : '',
             units_checked: this.CONFIG.units_value ? 'checked' : '',
-            null_values_checked: this.CONFIG.null_values_value ? 'checked' : ''
+            null_values_checked: this.CONFIG.null_values_value ? 'checked' : '',
+            output_type: this.CONFIG.output_type,
+            output_type_label: translate.output_type,
+            table_label: translate.table,
+            pivot_label: translate.pivot,
+            output_type_table_checked: this.CONFIG.table_value === true ? 'checked' : '',
+            output_type_pivot_checked: this.CONFIG.pivot_value === true ? 'checked' : ''
         };
         html = template(dynamic_data);
         $('#' + that.CONFIG.placeholder_id).html(html);
@@ -236,7 +246,7 @@ define(['jquery',
      */
     OPTIONS.prototype.collect_user_selection = function (output_format) {
         this.CONFIG.user_selection.decimal_separator_value = $('input[name="' + this.CONFIG.prefix + 'decimal_separator"]:checked').val();
-        this.CONFIG.user_selection.thousand_separator_value = $('input[name="' + this.CONFIG.prefix + 'thousand_separator"]:checked').val();
+        this.CONFIG.user_selection.thousand_separator_value = this.CONFIG.user_selection.decimal_separator_value === '.' ? ',' : '.';
         this.CONFIG.user_selection.decimal_numbers_value = $('#' + this.CONFIG.prefix + 'decimal_numbers').val();
         this.CONFIG.user_selection.flags_value = $('#' + this.CONFIG.prefix + 'flags').is(':checked');
         this.CONFIG.user_selection.codes_value = $('#' + this.CONFIG.prefix + 'codes').is(':checked');
