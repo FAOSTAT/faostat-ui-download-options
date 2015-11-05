@@ -256,7 +256,13 @@ define(['jquery',
             this.CONFIG.user_selection.origin = output_format;
             this.CONFIG.user_selection.output_format = output_format;
         }
+        this.CONFIG.user_selection.output_type = this.get_output_type();
         return this.CONFIG.user_selection;
+    };
+
+    OPTIONS.prototype.get_output_type = function () {
+        var test = $('#' + this.CONFIG.prefix + 'output_type').is(':checked');
+        return test ? 'TABLE' : 'PIVOT';
     };
 
     OPTIONS.prototype.get_radio_button = function (radio_button_code) {
