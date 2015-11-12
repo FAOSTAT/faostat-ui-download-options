@@ -59,6 +59,7 @@ define(['jquery',
             callback: {
                 onCodesChange: null,
                 onFlagsChange: null,
+                onOutputTypeChange: null,
                 onUnitsChange: null
             }
 
@@ -177,6 +178,16 @@ define(['jquery',
                 that.CONFIG.callback.onFlagsChange($(this).is(':checked'));
             }
         });
+        $('#' + this.CONFIG.prefix + 'output_type').change(function () {
+            if (that.CONFIG.callback.onOutputTypeChange) {
+                that.CONFIG.callback.onOutputTypeChange($(this).is(':checked'));
+            }
+        });
+        $('#' + this.CONFIG.prefix + 'output_type_pivot').change(function () {
+            if (that.CONFIG.callback.onOutputTypeChange) {
+                that.CONFIG.callback.onOutputTypeChange($(this).is(':checked'));
+            }
+        });
 
         /* Link decimal and thousand separators. */
         if (this.CONFIG.decimal_separators && this.CONFIG.thousand_separators) {
@@ -220,6 +231,7 @@ define(['jquery',
         $('#' + this.CONFIG.prefix + 'thousand_separator').change(function () { that.option_changed_listener(); });
         $('#' + this.CONFIG.prefix + 'decimal_separator_period').change(function () { that.option_changed_listener(); });
         $('#' + this.CONFIG.prefix + 'thousand_separator_period').change(function () { that.option_changed_listener(); });
+        //$('#' + this.CONFIG.prefix + 'output_type').change(function () { that.option_changed_listener(); });
 
     };
 
