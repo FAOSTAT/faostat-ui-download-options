@@ -146,23 +146,31 @@
                     {{>options_panel}}
                 </div>
                 <div class='modal-footer'>
+                    {{#if metadata}}
+                    <button type='button' class='btn btn-primary fs-download-btn pull-left' id='{{prefix}}metadata_button' data-dismiss='modal' style='margin-bottom: 3px; margin-left: 3px;'>
+                        <i class='fa fa-file-pdf-o'></i> {{metadata_label}}
+                    </button>
+                    {{/if}}
                     {{#if pdf}}
-                    <button type='button' class='btn btn-primary fs-download-btn' id='{{prefix}}pdf_button' data-dismiss='modal'>
+                    <button type='button' class='btn btn-primary fs-download-btn' id='{{prefix}}pdf_button' data-dismiss='modal' style='margin-bottom: 3px; margin-left: 3px;'>
                         <i class='fa fa-file-pdf-o'></i> {{pdf_label}}
                     </button>
                     {{/if}}
                     {{#if csv}}
-                    <button type='button' class='btn btn-primary fs-download-btn' id='{{prefix}}csv_button' data-dismiss='modal'>
+                    <button type='button' class='btn btn-primary fs-download-btn' id='{{prefix}}csv_button' data-dismiss='modal' style='margin-bottom: 3px; margin-left: 3px;'>
                         <i class='fa fa-file-text-o'></i> {{csv_label}}
+                    </button>
+                    <button type='button' class='btn btn-primary fs-download-btn' id='{{prefix}}csv_info_button' data-dismiss='modal' style='margin-bottom: 3px; margin-left: 3px;'>
+                        <i class='fa fa-info-circle'></i> What is a CSV?
                     </button>
                     {{/if}}
                     {{#if excel}}
-                    <button type='button' class='btn btn-primary ' id='{{prefix}}excel_button' data-dismiss='modal'>
+                    <button type='button' class='btn btn-primary ' id='{{prefix}}excel_button' data-dismiss='modal' style='margin-bottom: 3px; margin-left: 3px;'>
                         <i class='fa fa-file-excel-o'></i> {{excel_label}}
                     </button>
                     {{/if}}
                     {{#if ok}}
-                    <button type='button' class='btn btn-primary ' id='{{prefix}}ok_button' data-dismiss='modal'>
+                    <button type='button' class='btn btn-primary ' id='{{prefix}}ok_button' data-dismiss='modal' style='margin-bottom: 3px; margin-left: 3px;'>
                         <i class='fa fa-check'></i> {{ok_button_label}}
                     </button>
                     {{/if}}
