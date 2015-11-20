@@ -59,6 +59,7 @@ define(['jquery',
             pivot_value: false,
 
             callback: {
+                onDecimalSeparatorChange: null,
                 onDecimalNumbersChange: null,
                 onCodesChange: null,
                 onFlagsChange: null,
@@ -196,6 +197,16 @@ define(['jquery',
         $('#' + this.CONFIG.prefix + 'decimal_numbers').change(function () {
             if (that.CONFIG.callback.onDecimalNumbersChange) {
                 that.CONFIG.callback.onDecimalNumbersChange($(this).val());
+            }
+        });
+        $('#' + this.CONFIG.prefix + 'decimal_separator').change(function () {
+            if (that.CONFIG.callback.onDecimalSeparatorChange) {
+                that.CONFIG.callback.onDecimalSeparatorChange($(this).is(':checked'));
+            }
+        });
+        $('#' + this.CONFIG.prefix + 'decimal_separator_period').change(function () {
+            if (that.CONFIG.callback.onDecimalSeparatorChange) {
+                that.CONFIG.callback.onDecimalSeparatorChange($(this).is(':checked'));
             }
         });
 
