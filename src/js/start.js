@@ -59,6 +59,7 @@ define(['jquery',
             pivot_value: false,
 
             callback: {
+                onDecimalNumbersChange: null,
                 onCodesChange: null,
                 onFlagsChange: null,
                 onOutputTypeChange: null,
@@ -190,6 +191,11 @@ define(['jquery',
         $('#' + this.CONFIG.prefix + 'output_type_pivot').change(function () {
             if (that.CONFIG.callback.onOutputTypeChange) {
                 that.CONFIG.callback.onOutputTypeChange($(this).is(':checked'));
+            }
+        });
+        $('#' + this.CONFIG.prefix + 'decimal_numbers').change(function () {
+            if (that.CONFIG.callback.onDecimalNumbersChange) {
+                that.CONFIG.callback.onDecimalNumbersChange($(this).val());
             }
         });
 
