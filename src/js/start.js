@@ -316,6 +316,10 @@ define(['jquery',
         });
     };
 
+    OPTIONS.prototype.dispose = function () {
+
+    };
+
     return OPTIONS;
 
 });
