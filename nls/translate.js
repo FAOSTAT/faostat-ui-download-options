@@ -23,6 +23,6 @@ define({
         table: 'Table',
         pivot: 'Pivot'
     },
-    F : true,
-    S : true
+    fr : true,
+    es : true
 });
