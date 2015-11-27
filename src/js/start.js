@@ -62,6 +62,7 @@ define(['jquery',
                 onDecimalSeparatorChange: null,
                 onDecimalNumbersChange: null,
                 onCodesChange: null,
+                onNullValuesChange: null,
                 onFlagsChange: null,
                 onOutputTypeChange: null,
                 onUnitsChange: null
@@ -173,6 +174,12 @@ define(['jquery',
         $('#' + this.CONFIG.prefix + 'codes').change(function () {
             if (that.CONFIG.callback.onCodesChange) {
                 that.CONFIG.callback.onCodesChange($(this).is(':checked'));
+            }
+        });
+        $('#' + this.CONFIG.prefix + 'null_values').off();
+        $('#' + this.CONFIG.prefix + 'null_values').change(function () {
+            if (that.CONFIG.callback.onNullValuesChange) {
+                that.CONFIG.callback.onNullValuesChange($(this).is(':checked'));
             }
         });
         $('#' + this.CONFIG.prefix + 'unit').off();
@@ -327,6 +334,7 @@ define(['jquery',
 
     OPTIONS.prototype.dispose = function () {
         $('#' + this.CONFIG.prefix + 'codes').off();
+        $('#' + this.CONFIG.prefix + 'null_values').off();
         $('#' + this.CONFIG.prefix + 'unit').off();
         $('#' + this.CONFIG.prefix + 'flags').off();
         $('#' + this.CONFIG.prefix + 'output_type').off();
