@@ -154,7 +154,9 @@ define(['jquery',
             table_label: translate.table,
             pivot_label: translate.pivot,
             output_type_table_checked: this.CONFIG.table_value === true ? 'checked' : '',
-            output_type_pivot_checked: this.CONFIG.pivot_value === true ? 'checked' : ''
+            output_type_pivot_checked: this.CONFIG.pivot_value === true ? 'checked' : '',
+            table_value: this.CONFIG.table_value,
+            pivot_value: this.CONFIG.pivot_value
         };
         html = template(dynamic_data);
         $('#' + that.CONFIG.placeholder_id).html(html);
@@ -269,6 +271,8 @@ define(['jquery',
         $('#' + this.CONFIG.prefix + 'thousand_separator').change(function () { that.option_changed_listener(); });
         $('#' + this.CONFIG.prefix + 'decimal_separator_period').change(function () { that.option_changed_listener(); });
         $('#' + this.CONFIG.prefix + 'thousand_separator_period').change(function () { that.option_changed_listener(); });
+        $('#' + this.CONFIG.prefix + 'output_type').change(function () { that.option_changed_listener(); });
+        $('#' + this.CONFIG.prefix + 'output_type_pivot').change(function () { that.option_changed_listener(); });
 
     };
 
@@ -298,6 +302,8 @@ define(['jquery',
         this.CONFIG.user_selection.thousand_separator_value = this.CONFIG.user_selection.decimal_separator_value === '.' ? ',' : '.';
         this.CONFIG.user_selection.decimal_numbers_value = $('#' + this.CONFIG.prefix + 'decimal_numbers').val();
         this.CONFIG.user_selection.flags_value = $('#' + this.CONFIG.prefix + 'flags').is(':checked');
+        this.CONFIG.user_selection.table_value = $('#' + this.CONFIG.prefix + 'output_type').is(':checked');
+        this.CONFIG.user_selection.pivot_value = $('#' + this.CONFIG.prefix + 'output_type_pivot').is(':checked');
         this.CONFIG.user_selection.codes_value = $('#' + this.CONFIG.prefix + 'codes').is(':checked');
         this.CONFIG.user_selection.units_value = $('#' + this.CONFIG.prefix + 'unit').is(':checked');
         this.CONFIG.user_selection.null_values_value = $('#' + this.CONFIG.prefix + 'null_values').is(':checked');
@@ -344,7 +350,6 @@ define(['jquery',
         $('#' + this.CONFIG.prefix + 'decimal_separator_period').off();
         $("input:radio[name=" + this.CONFIG.prefix + "decimal_separator]").off();
         $("input:radio[name=" + this.CONFIG.prefix + "thousand_separator]").off();
-        $('#' + this.CONFIG.prefix + 'null_values').off();
         $('#' + this.CONFIG.prefix + 'thousand_separator').off();
         $('#' + this.CONFIG.prefix + 'thousand_separator_period').off();
     };
