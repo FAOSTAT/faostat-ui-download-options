@@ -2,11 +2,11 @@
 define({
     root : {
         button: 'Download Options',
-        decimal_separator: 'Decimal Separator',
+        decimal_separator: 'Separator',
         comma: 'Comma',
         period: 'Period',
         thousand_separator: 'Thousand Separator',
-        decimal_numbers: 'Decimal Places',
+        decimal_numbers: 'Decimal',
         show: 'Show',
         flags: 'Flags',
         codes: 'Codes',
@@ -19,7 +19,7 @@ define({
         pdf: 'Download as PDF',
         warning: 'Warning',
         no_listener_for_this_button: 'No action has been implemented for this button. Please check your configuration.',
-        output_type: 'Output Type',
+        output_type: 'Output',
         table: 'Table',
         pivot: 'Pivot'
     },

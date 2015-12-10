@@ -1,42 +1,44 @@
 <script type='text/x-handlebars-template' id='options_panel'>
     <div class='row'>
         {{#if output_type}}
-            <div class='col-lg-3'>
+            <div class='col-sm-6 col-md-3'>
                 <p>
                     {{output_type_label}}
                 </p>
-                <hr class='standard-hr'>
+                <hr>
+
                 <div class='radio'>
-                    <input type='radio' value='Table' name='{{prefix}}output_type' id='{{prefix}}output_type' {{output_type_table_checked}}>
                     <label for="{{prefix}}output_type">
+                        <input type='radio' value='Table' name='{{prefix}}output_type' id='{{prefix}}output_type' {{output_type_table_checked}}>
                         {{table_label}}
+
                     </label>
                 </div>
                 <div class='radio'>
-                    <input type='radio' value='Pivot' name='{{prefix}}output_type' id='{{prefix}}output_type_pivot' {{output_type_pivot_checked}}>
                     <label for="{{prefix}}output_type_pivot">
+                        <input type='radio' value='Pivot' name='{{prefix}}output_type' id='{{prefix}}output_type_pivot' {{output_type_pivot_checked}}>
                         {{pivot_label}}
                     </label>
                 </div>
             </div>
         {{/if}}
         {{#if decimal_separators}}
-            <!--<div class='col-lg-3'>-->
+            <!--<div class='col-sm-6 col-md-3'>-->
                 <!--<div class='row'>-->
-                    <div class='col-lg-3'>
+                    <div class='col-sm-6 col-md-3'>
                         <p>
                             {{decimal_separator_label}}
                         </p>
-                        <hr class='standard-hr'>
+                        <hr>
                         <div class='radio'>
-                            <input type='radio' value=',' name='{{prefix}}decimal_separator' id='{{prefix}}decimal_separator' {{decimal_separator_comma_checked}}>
                             <label for="{{prefix}}decimal_separator">
+                                <input type='radio' value=',' name='{{prefix}}decimal_separator' id='{{prefix}}decimal_separator' {{decimal_separator_comma_checked}}>
                                 {{comma_label}}
                             </label>
                         </div>
                         <div class='radio'>
-                            <input type='radio' value='.' name='{{prefix}}decimal_separator' id='{{prefix}}decimal_separator_period' {{decimal_separator_period_checked}}>
                             <label for="{{prefix}}decimal_separator_period">
+                                <input type='radio' value='.' name='{{prefix}}decimal_separator' id='{{prefix}}decimal_separator_period' {{decimal_separator_period_checked}}>
                                 {{period_label}}
                             </label>
                         </div>
@@ -46,7 +48,7 @@
                             <!--<p>-->
                                 <!--{{thousand_separator_label}}-->
                             <!--</p>-->
-                            <!--<hr class='standard-hr'>-->
+                            <!--<hr >-->
                             <!--<div class='radio'>-->
                                 <!--<input type='radio' value=',' name='{{prefix}}thousand_separator' checked id='{{prefix}}thousand_separator' {{thousand_separator_comma_checked}}>-->
                                 <!--<label for="{{prefix}}thousand_separator">-->
@@ -65,11 +67,11 @@
             <!--</div>-->
         {{/if}}
         <!--{{#if thousand_separators}}-->
-            <!--<div class='col-lg-3'>-->
+            <!--<div class='col-sm-6 col-md-3'>-->
                 <!--<p>-->
                     <!--{{thousand_separator_label}}-->
                 <!--</p>-->
-                <!--<hr class='standard-hr'>-->
+                <!--<hr >-->
                 <!--<div class='radio'>-->
                     <!--<input type='radio' value=',' name='{{prefix}}thousand_separator' checked id='{{prefix}}thousand_separator' {{thousand_separator_comma_checked}}>-->
                     <!--<label for="{{prefix}}thousand_separator">-->
@@ -85,41 +87,41 @@
             <!--</div>-->
         <!--{{/if}}-->
         {{#if decimal_numbers}}
-            <div class='col-lg-3'>
+            <div class='col-sm-6 col-md-3'>
                 <p>
                     {{decimal_numbers_label}}
                 </p>
-                <hr class='standard-hr'>
+                <hr>
                 <input type='number' class='form-control' value='{{decimal_numbers_value}}' style='width: 100%;' id='{{prefix}}decimal_numbers'>
             </div>
         {{/if}}
         {{#if show_options}}
-            <div class='col-lg-3'>
+            <div class='col-sm-6 col-md-3'>
                 <p>
                     {{show_label}}
                 </p>
-                <hr class='standard-hr'>
+                <hr>
                 <div class='checkbox'>
-                    <input type='checkbox' id='{{prefix}}flags' {{flags_checked}}>
                     <label for="{{prefix}}flags">
+                        <input type='checkbox' id='{{prefix}}flags' {{flags_checked}}>
                         {{flags_label}}
                     </label>
                 </div>
                 <div class='checkbox'>
-                    <input type='checkbox' id='{{prefix}}codes' {{codes_checked}}>
                     <label for="{{prefix}}codes">
+                        <input type='checkbox' id='{{prefix}}codes' {{codes_checked}}>
                         {{codes_label}}
                     </label>
                 </div>
                 <div class='checkbox'>
-                    <input type='checkbox' id='{{prefix}}unit' {{units_checked}}>
                     <label for="{{prefix}}unit">
+                        <input type='checkbox' id='{{prefix}}unit' {{units_checked}}>
                         {{units_label}}
                     </label>
                 </div>
                 <div class='checkbox'>
-                    <input type='checkbox' id='{{prefix}}null_values' {{null_values_checked}}>
                     <label for="{{prefix}}null_values">
+                        <input type='checkbox' id='{{prefix}}null_values' {{null_values_checked}}>
                         {{null_values_label}}
                     </label>
                 </div>
