@@ -1,11 +1,11 @@
 /*global define*/
 define(['jquery',
+        'loglevel',
         'handlebars',
         'text!fenix_ui_download_options/html/templates.hbs',
         'i18n!fenix_ui_download_options/nls/translate',
         'bootstrap',
-        'sweetAlert',
-        'amplify'], function ($, Handlebars, templates, translate) {
+        'amplify'], function ($, log, Handlebars, templates, translate) {
 
     'use strict';
 
@@ -15,7 +15,6 @@ define(['jquery',
 
             mode: 'window',
 
-            lang: 'E',
             placeholder_id: 'placeholder',
             user_selection: {},
             prefix: 'fenix_',
@@ -76,9 +75,6 @@ define(['jquery',
 
         /* Extend default configuration. */
         this.CONFIG = $.extend(true, {}, this.CONFIG, config);
-
-        /* Fix the language, if needed. */
-        this.CONFIG.lang = this.CONFIG.lang !== null ? this.CONFIG.lang : 'E';
 
     };
 
@@ -316,11 +312,13 @@ define(['jquery',
     };
 
     OPTIONS.prototype.get_output_type = function () {
+        log.info("OPTIONS.get_output_type; ", $('#' + this.CONFIG.prefix + 'output_type').is(':checked'));
         var test = $('#' + this.CONFIG.prefix + 'output_type').is(':checked');
         return test ? 'TABLE' : 'PIVOT';
     };
 
     OPTIONS.prototype.get_radio_button = function (radio_button_code) {
+        log.info("OPTIONS.get_radio_button; get_radio_button", radio_button_code);
         return $('#' + this.CONFIG.prefix + radio_button_code);
     };
 
@@ -333,7 +331,9 @@ define(['jquery',
      * @param {Object} callback_data Data to be downloaded/exported.
      */
     OPTIONS.prototype.onDownload = function (callback_data, callback) {
+        log.info("OPTIONS.onDownload; callback_data", callback_data, callback);
         amplify.subscribe(this.CONFIG.prefix + 'event', function (user_selection) {
+            log.info("OPTIONS.onDownload; callback_data", user_selection, callback_data);
             callback(user_selection, callback_data);
         });
     };
