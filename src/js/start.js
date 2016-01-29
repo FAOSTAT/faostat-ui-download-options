@@ -212,6 +212,7 @@ define(['jquery',
             if (that.CONFIG.callback.onOutputTypeChange) {
                 that.CONFIG.callback.onOutputTypeChange($(this).is(':checked'));
             }
+            amplify.publish(E.DOWNLOAD_SELECTION_CHANGE);
         });
         $('#' + this.CONFIG.prefix + 'decimal_numbers').off();
         $('#' + this.CONFIG.prefix + 'decimal_numbers').change(function () {
@@ -225,6 +226,7 @@ define(['jquery',
             if (that.CONFIG.callback.onDecimalSeparatorChange) {
                 that.CONFIG.callback.onDecimalSeparatorChange($(this).is(':checked'));
             }
+            amplify.publish(E.DOWNLOAD_SELECTION_CHANGE);
         });
         $('#' + this.CONFIG.prefix + 'decimal_separator_period').off();
         $('#' + this.CONFIG.prefix + 'decimal_separator_period').change(function () {
