@@ -1,11 +1,12 @@
 /*global define*/
 define(['jquery',
         'loglevel',
+        'config/Events',
         'handlebars',
         'text!fs-d-o/html/templates.hbs',
         'i18n!fs-d-o/nls/translate',
         'bootstrap',
-        'amplify'], function ($, log, Handlebars, templates, translate) {
+        'amplify'], function ($, log, E, Handlebars, templates, translate) {
 
     'use strict';
 
@@ -176,30 +177,35 @@ define(['jquery',
             if (that.CONFIG.callback.onCodesChange) {
                 that.CONFIG.callback.onCodesChange($(this).is(':checked'));
             }
+            amplify.publish(E.DOWNLOAD_SELECTION_CHANGE);
         });
         $('#' + this.CONFIG.prefix + 'null_values').off();
         $('#' + this.CONFIG.prefix + 'null_values').change(function () {
             if (that.CONFIG.callback.onNullValuesChange) {
                 that.CONFIG.callback.onNullValuesChange($(this).is(':checked'));
             }
+            amplify.publish(E.DOWNLOAD_SELECTION_CHANGE);
         });
         $('#' + this.CONFIG.prefix + 'unit').off();
         $('#' + this.CONFIG.prefix + 'unit').change(function () {
             if (that.CONFIG.callback.onUnitsChange) {
                 that.CONFIG.callback.onUnitsChange($(this).is(':checked'));
             }
+            amplify.publish(E.DOWNLOAD_SELECTION_CHANGE);
         });
         $('#' + this.CONFIG.prefix + 'flags').off();
         $('#' + this.CONFIG.prefix + 'flags').change(function () {
             if (that.CONFIG.callback.onFlagsChange) {
                 that.CONFIG.callback.onFlagsChange($(this).is(':checked'));
             }
+            amplify.publish(E.DOWNLOAD_SELECTION_CHANGE);
         });
         $('#' + this.CONFIG.prefix + 'output_type').off();
         $('#' + this.CONFIG.prefix + 'output_type').change(function () {
             if (that.CONFIG.callback.onOutputTypeChange) {
                 that.CONFIG.callback.onOutputTypeChange($(this).is(':checked'));
             }
+            amplify.publish(E.DOWNLOAD_SELECTION_CHANGE);
         });
         $('#' + this.CONFIG.prefix + 'output_type_pivot').off();
         $('#' + this.CONFIG.prefix + 'output_type_pivot').change(function () {
@@ -212,6 +218,7 @@ define(['jquery',
             if (that.CONFIG.callback.onDecimalNumbersChange) {
                 that.CONFIG.callback.onDecimalNumbersChange($(this).val());
             }
+            amplify.publish(E.DOWNLOAD_SELECTION_CHANGE);
         });
         $('#' + this.CONFIG.prefix + 'decimal_separator').off();
         $('#' + this.CONFIG.prefix + 'decimal_separator').change(function () {
@@ -224,6 +231,7 @@ define(['jquery',
             if (that.CONFIG.callback.onDecimalSeparatorChange) {
                 that.CONFIG.callback.onDecimalSeparatorChange($(this).is(':checked'));
             }
+            amplify.publish(E.DOWNLOAD_SELECTION_CHANGE);
         });
 
         /* Link decimal and thousand separators. */
@@ -237,6 +245,7 @@ define(['jquery',
                     $('#' + that.CONFIG.prefix + 'thousand_separator').prop('checked', false);
                     $('#' + that.CONFIG.prefix + 'thousand_separator_period').prop('checked', true);
                 }
+                amplify.publish(E.DOWNLOAD_SELECTION_CHANGE);
             });
             $("input:radio[name=" + that.CONFIG.prefix + "thousand_separator]").off();
             $("input:radio[name=" + that.CONFIG.prefix + "thousand_separator]").change(function () {
@@ -247,6 +256,8 @@ define(['jquery',
                     $('#' + that.CONFIG.prefix + 'decimal_separator').prop('checked', false);
                     $('#' + that.CONFIG.prefix + 'decimal_separator_period').prop('checked', true);
                 }
+
+                amplify.publish(E.DOWNLOAD_SELECTION_CHANGE);
             });
         }
 
