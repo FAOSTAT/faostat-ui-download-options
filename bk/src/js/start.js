@@ -2,8 +2,8 @@
 define(['jquery',
         'loglevel',
         'handlebars',
-        'text!fs-d-o/html/templates.hbs',
-        'i18n!fs-d-o/nls/translate',
+        'text!fenix_ui_download_options/html/templates.hbs',
+        'i18n!fenix_ui_download_options/nls/translate',
         'bootstrap',
         'amplify'], function ($, log, Handlebars, templates, translate) {
 
@@ -15,9 +15,9 @@ define(['jquery',
 
             mode: 'window',
 
-            container: 'placeholder',
+            placeholder_id: 'placeholder',
             user_selection: {},
-            prefix: Math.random().toString().replace('.', ''),
+            prefix: 'fenix_',
 
             excel_button: true,
             metadata_button: false,
@@ -155,10 +155,7 @@ define(['jquery',
             pivot_value: this.CONFIG.pivot_value
         };
         html = template(dynamic_data);
-
-        this.$CONTAINER = $(this.CONFIG.container);
-
-        this.$CONTAINER.html(html);
+        $('#' + that.CONFIG.placeholder_id).html(html);
 
         /* Apply listeners. */
         this.apply_listeners();
@@ -339,39 +336,6 @@ define(['jquery',
             log.info("OPTIONS.onDownload; callback_data", user_selection, callback_data);
             callback(user_selection, callback_data);
         });
-    };
-
-    OPTIONS.prototype.getSelections = function (output_format) {
-
-        this.CONFIG.user_selection.decimal_separator_value = $('input[name="' + this.CONFIG.prefix + 'decimal_separator"]:checked').val();
-        this.CONFIG.user_selection.thousand_separator_value = this.CONFIG.user_selection.decimal_separator_value === '.' ? ',' : '.';
-        this.CONFIG.user_selection.decimal_numbers_value = $('#' + this.CONFIG.prefix + 'decimal_numbers').val();
-        this.CONFIG.user_selection.flags_value = $('#' + this.CONFIG.prefix + 'flags').is(':checked');
-        this.CONFIG.user_selection.table_value = $('#' + this.CONFIG.prefix + 'output_type').is(':checked');
-        this.CONFIG.user_selection.pivot_value = $('#' + this.CONFIG.prefix + 'output_type_pivot').is(':checked');
-        this.CONFIG.user_selection.codes_value = $('#' + this.CONFIG.prefix + 'codes').is(':checked');
-        this.CONFIG.user_selection.units_value = $('#' + this.CONFIG.prefix + 'unit').is(':checked');
-        this.CONFIG.user_selection.null_values_value = $('#' + this.CONFIG.prefix + 'null_values').is(':checked');
-        if (output_format) {
-            this.CONFIG.user_selection.origin = output_format;
-            this.CONFIG.user_selection.output_format = output_format;
-        }
-        this.CONFIG.user_selection.output_type = this.get_output_type();
-
-
-        var obj = {
-            type: this.CONFIG.user_selection.table_value? 'table' : 'pivot',
-            request: {
-                show_codes: this.CONFIG.user_selection.codes_value? 1 : 0,
-                //show_unit: this.CONFIG.user_selection.units_value? 1 : 0,
-                show_flags: this.CONFIG.user_selection.flags_value? 1 : 0,
-                null_values: this.CONFIG.user_selection.null_values_value
-            }
-        };
-
-        log.info('Options.getSelections;', obj)
-
-        return obj;
     };
 
     OPTIONS.prototype.dispose = function () {
