@@ -28,7 +28,7 @@ define(['jquery',
 
             decimal_separators: true,
             thousand_separators: true,
-            decimal_numbers: true,
+            decimal_numbers: false,
             show_options: true,
             output_type: true,
 
@@ -376,7 +376,7 @@ define(['jquery',
             type: this.CONFIG.user_selection.table_value? 'table' : 'pivot',
             request: {
                 show_codes: this.CONFIG.user_selection.codes_value? 1 : 0,
-                //show_unit: this.CONFIG.user_selection.units_value? 1 : 0,
+                show_unit: this.CONFIG.user_selection.units_value? 1 : 0,
                 show_flags: this.CONFIG.user_selection.flags_value? 1 : 0,
                 null_values: this.CONFIG.user_selection.null_values_value
             }

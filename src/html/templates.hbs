@@ -1,7 +1,7 @@
 <script type='text/x-handlebars-template' id='options_panel'>
     <div class='row'>
         {{#if output_type}}
-            <div class='col-sm-6 col-md-3'>
+            <div class='col-sm-6 col-md-4'>
                 <p>
                     {{output_type_label}}
                 </p>
@@ -25,7 +25,7 @@
         {{#if decimal_separators}}
             <!--<div class='col-sm-6 col-md-3'>-->
                 <!--<div class='row'>-->
-                    <div class='col-sm-6 col-md-3'>
+                    <div class='col-sm-6 col-md-4'>
                         <p>
                             {{decimal_separator_label}}
                         </p>
@@ -87,7 +87,7 @@
             <!--</div>-->
         <!--{{/if}}-->
         {{#if decimal_numbers}}
-            <div class='col-sm-6 col-md-3'>
+            <div class='col-sm-6 col-md-4'>
                 <p>
                     {{decimal_numbers_label}}
                 </p>
@@ -96,35 +96,35 @@
             </div>
         {{/if}}
         {{#if show_options}}
-            <div class='col-sm-6 col-md-3'>
+            <div class='col-sm-6 col-md-4'>
                 <p>
                     {{show_label}}
                 </p>
                 <hr>
-<!--                <div class='checkbox'>
+                <div class='checkbox'>
                     <label for="{{prefix}}flags">
                         <input type='checkbox' id='{{prefix}}flags' {{flags_checked}}>
                         {{flags_label}}
                     </label>
-                </div>-->
+                </div>
                 <div class='checkbox'>
                     <label for="{{prefix}}codes">
                         <input type='checkbox' id='{{prefix}}codes' {{codes_checked}}>
                         {{codes_label}}
                     </label>
                 </div>
-<!--                <div class='checkbox'>
+                <div class='checkbox'>
                     <label for="{{prefix}}unit">
                         <input type='checkbox' id='{{prefix}}unit' {{units_checked}}>
                         {{units_label}}
                     </label>
-                </div>-->
-<!--                <div class='checkbox'>
+                </div>
+                <div class='checkbox'>
                     <label for="{{prefix}}null_values">
                         <input type='checkbox' id='{{prefix}}null_values' {{null_values_checked}}>
                         {{null_values_label}}
                     </label>
-                </div>-->
+                </div>
             </div>
         {{/if}}
     </div>
