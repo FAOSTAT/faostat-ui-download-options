@@ -25,7 +25,7 @@
         {{#if decimal_separators}}
             <!--<div class='col-sm-6 col-md-3'>-->
                 <!--<div class='row'>-->
-                    <div class='col-sm-6 col-md-4'>
+<!--                    <div class='col-sm-6 col-md-4'>
                         <p>
                             {{decimal_separator_label}}
                         </p>
@@ -42,27 +42,33 @@
                                 {{period_label}}
                             </label>
                         </div>
-                    </div>
-                    <!--{{#if thousand_separators}}-->
-                        <!--<div class='col-lg-12'>-->
-                            <!--<p>-->
-                                <!--{{thousand_separator_label}}-->
-                            <!--</p>-->
-                            <!--<hr >-->
-                            <!--<div class='radio'>-->
-                                <!--<input type='radio' value=',' name='{{prefix}}thousand_separator' checked id='{{prefix}}thousand_separator' {{thousand_separator_comma_checked}}>-->
-                                <!--<label for="{{prefix}}thousand_separator">-->
-                                    <!--{{comma_label}}-->
-                                <!--</label>-->
-                            <!--</div>-->
-                            <!--<div class='radio'>-->
-                                <!--<input type='radio' value='.' name='{{prefix}}thousand_separator' id='{{prefix}}thousand_separator_period' {{thousand_separator_period_checked}}>-->
-                                <!--<label for="{{prefix}}thousand_separator_period">-->
-                                    <!--{{period_label}}-->
-                                <!--</label>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--{{/if}}-->
+                    </div>-->
+                    {{#if thousand_separators}}
+                        <div class='col-sm-6 col-md-4'>
+                            <p>
+                                {{thousand_separator_label}}
+                            </p>
+                            <hr >
+                            <div class='radio'>
+                                <label for="{{prefix}}thousand_separator_none">
+                                    <input type='radio' value='' name='{{prefix}}thousand_separator' id='{{prefix}}thousand_separator_none' {{thousand_separator_none_checked}}>
+                                    {{none}}
+                                </label>
+                            </div>
+                            <div class='radio'>
+                                <label for="{{prefix}}thousand_separator_comma">
+                                    <input type='radio' value=',' name='{{prefix}}thousand_separator' id='{{prefix}}thousand_separator_comma' {{thousand_separator_comma_checked}}>
+                                    {{comma_label}}
+                                </label>
+                            </div>
+                            <div class='radio'>
+                                <label for="{{prefix}}thousand_separator_period">
+                                    <input type='radio' value='.' name='{{prefix}}thousand_separator' id='{{prefix}}thousand_separator_period' {{thousand_separator_period_checked}}>
+                                    {{period_label}}
+                                </label>
+                             </div>
+                        </div>
+                    {{/if}}
                 <!--</div>-->
             <!--</div>-->
         {{/if}}

@@ -49,7 +49,7 @@ define(['jquery',
 
             decimal_numbers_value: 2,
             decimal_separator_value: '.',
-            thousand_separator_value: ',',
+            thousand_separator_value: '',
             flags_value: true,
             codes_value: true,
             units_value: true,
@@ -142,6 +142,7 @@ define(['jquery',
             decimal_separator_period_checked: this.CONFIG.decimal_separator_value === '.' ? 'checked' : '',
             thousand_separator_comma_checked: this.CONFIG.thousand_separator_value === ',' ? 'checked' : '',
             thousand_separator_period_checked: this.CONFIG.thousand_separator_value === '.' ? 'checked' : '',
+            thousand_separator_none_checked: this.CONFIG.thousand_separator_value === '' ? 'checked' : '',
             flags_checked: this.CONFIG.flags_value ? 'checked' : '',
             codes_checked: this.CONFIG.codes_value ? 'checked' : '',
             units_checked: this.CONFIG.units_value ? 'checked' : '',
@@ -153,7 +154,8 @@ define(['jquery',
             output_type_table_checked: this.CONFIG.table_value === true ? 'checked' : '',
             output_type_pivot_checked: this.CONFIG.pivot_value === true ? 'checked' : '',
             table_value: this.CONFIG.table_value,
-            pivot_value: this.CONFIG.pivot_value
+            pivot_value: this.CONFIG.pivot_value,
+            none : translate.none
         };
         html = template(dynamic_data);
 
@@ -356,8 +358,7 @@ define(['jquery',
 
     OPTIONS.prototype.getSelections = function (output_format) {
 
-        this.CONFIG.user_selection.decimal_separator_value = $('input[name="' + this.CONFIG.prefix + 'decimal_separator"]:checked').val();
-        this.CONFIG.user_selection.thousand_separator_value = this.CONFIG.user_selection.decimal_separator_value === '.' ? ',' : '.';
+        this.CONFIG.user_selection.thousand_separator_value = $('input[name="' + this.CONFIG.prefix + 'thousand_separator"]:checked').val();
         this.CONFIG.user_selection.decimal_numbers_value = $('#' + this.CONFIG.prefix + 'decimal_numbers').val();
         this.CONFIG.user_selection.flags_value = $('#' + this.CONFIG.prefix + 'flags').is(':checked');
         this.CONFIG.user_selection.table_value = $('#' + this.CONFIG.prefix + 'output_type').is(':checked');
@@ -374,6 +375,14 @@ define(['jquery',
 
         var obj = {
             type: this.CONFIG.user_selection.table_value? 'table' : 'pivot',
+            options: {
+                thousand_separator: this.CONFIG.user_selection.thousand_separator_value,
+                decimal_separator:  this.CONFIG.user_selection.thousand_separator_value === '.' ? ',' : '.',
+                show_codes: this.CONFIG.user_selection.codes_value? 1 : 0,
+                show_unit: this.CONFIG.user_selection.units_value? 1 : 0,
+                show_flags: this.CONFIG.user_selection.flags_value? 1 : 0,
+                null_values: this.CONFIG.user_selection.null_values_value
+            },
             request: {
                 show_codes: this.CONFIG.user_selection.codes_value? 1 : 0,
                 show_unit: this.CONFIG.user_selection.units_value? 1 : 0,

@@ -21,7 +21,8 @@ define({
         no_listener_for_this_button: 'No action has been implemented for this button. Please check your configuration.',
         output_type: 'Output',
         table: 'Table',
-        pivot: 'Pivot'
+        pivot: 'Pivot',
+        none: 'None'
     },
     fr : true,
     es : true
