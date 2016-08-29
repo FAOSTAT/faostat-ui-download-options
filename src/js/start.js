@@ -10,6 +10,7 @@ define(['jquery',
 
     'use strict';
 
+    // TODO: to be refactored.
     function OPTIONS() {
 
         this.CONFIG = {
@@ -330,13 +331,13 @@ define(['jquery',
     };
 
     OPTIONS.prototype.get_output_type = function () {
-        log.info("OPTIONS.get_output_type; ", $('#' + this.CONFIG.prefix + 'output_type').is(':checked'));
+        //log.info("OPTIONS.get_output_type; ", $('#' + this.CONFIG.prefix + 'output_type').is(':checked'));
         var test = $('#' + this.CONFIG.prefix + 'output_type').is(':checked');
         return test ? 'TABLE' : 'PIVOT';
     };
 
     OPTIONS.prototype.get_radio_button = function (radio_button_code) {
-        log.info("OPTIONS.get_radio_button; get_radio_button", radio_button_code);
+        //log.info("OPTIONS.get_radio_button; get_radio_button", radio_button_code);
         return $('#' + this.CONFIG.prefix + radio_button_code);
     };
 
@@ -349,9 +350,9 @@ define(['jquery',
      * @param {Object} callback_data Data to be downloaded/exported.
      */
     OPTIONS.prototype.onDownload = function (callback_data, callback) {
-        log.info("OPTIONS.onDownload; callback_data", callback_data, callback);
+        //log.info("OPTIONS.onDownload; callback_data", callback_data, callback);
         amplify.subscribe(this.CONFIG.prefix + 'event', function (user_selection) {
-            log.info("OPTIONS.onDownload; callback_data", user_selection, callback_data);
+            //log.info("OPTIONS.onDownload; callback_data", user_selection, callback_data);
             callback(user_selection, callback_data);
         });
     };
@@ -391,7 +392,7 @@ define(['jquery',
             }
         };
 
-        log.info('Options.getSelections;', obj)
+        //log.info('Options.getSelections;', obj)
 
         return obj;
     };

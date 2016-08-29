@@ -1,27 +1,17 @@
 /*global define*/
 define({
 
-    button: 'Download Options',
-    decimal_separator: 'Separator',
-    comma: 'Comma',
+    thousand_separator: 'Thousand Separator (Value)',
     period: 'Period',
-    thousand_separator: 'Thousand Separator',
-    decimal_numbers: 'Decimal',
-    show: 'Show',
-    flags: 'Flags',
-    codes: 'Codes',
-    units: 'Units',
+    comma: 'Comma',
+    none: 'None',
+    show: 'Output Formatting Options',
+    flags: 'Símbolos',
+    codes: 'Códigos',
+    units: 'Unidades',
     null_values: 'Null Values',
-    download_as: 'Download as...',
-    csv: 'Download as CSV',
-    metadata: 'Metadata',
-    excel: 'Download as Excel',
-    pdf: 'Download as PDF',
-    warning: 'Warning',
-    no_listener_for_this_button: 'No action has been implemented for this button. Please check your configuration.',
-    output_type: 'Output',
+    output_type: 'Output Type',
     table: 'Table',
-    pivot: 'Pivot',
-    none: 'None'
+    pivot: 'Pivot'
 
 });
