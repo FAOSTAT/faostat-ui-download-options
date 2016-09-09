@@ -379,15 +379,15 @@ define(['jquery',
             options: {
                 thousand_separator: this.CONFIG.user_selection.thousand_separator_value,
                 decimal_separator:  this.CONFIG.user_selection.thousand_separator_value === '.' ? ',' : '.',
-                show_codes: this.CONFIG.user_selection.codes_value? 1 : 0,
-                show_unit: this.CONFIG.user_selection.units_value? 1 : 0,
-                show_flags: this.CONFIG.user_selection.flags_value? 1 : 0,
+                show_codes: this.CONFIG.user_selection.codes_value? true : false,
+                show_unit: this.CONFIG.user_selection.units_value? true : false,
+                show_flags: this.CONFIG.user_selection.flags_value? true : false,
                 null_values: this.CONFIG.user_selection.null_values_value
             },
             request: {
-                show_codes: this.CONFIG.user_selection.codes_value? 1 : 0,
-                show_unit: this.CONFIG.user_selection.units_value? 1 : 0,
-                show_flags: this.CONFIG.user_selection.flags_value? 1 : 0,
+                show_codes: this.CONFIG.user_selection.codes_value? true : false,
+                show_unit: this.CONFIG.user_selection.units_value? true : false,
+                show_flags: this.CONFIG.user_selection.flags_value? true : false,
                 null_values: this.CONFIG.user_selection.null_values_value
             }
         };
