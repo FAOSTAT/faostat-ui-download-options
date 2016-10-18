@@ -1,7 +1,7 @@
 /*global define*/
 define({
     root : {
-        thousand_separator: 'Thousand Separator (Value)',
+        thousand_separator: 'Value Thousand Separator (show data)',
         period: 'Period',
         comma: 'Comma',
         none: 'None',

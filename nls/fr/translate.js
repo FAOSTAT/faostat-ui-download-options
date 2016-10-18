@@ -1,9 +1,9 @@
 define({
-    thousand_separator: 'Séparateur des milles (Value)',
+    thousand_separator: 'Séparateur milles (montrer données)',
     period: 'Période',
     comma: 'Virgule',
     none: 'Rien',
-    show: "ptions de formatage de l’output",
+    show: "Options de formatage de l’output",
     flags: 'Symboles',
     codes: 'Codes',
     units: 'Unités',
